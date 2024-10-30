@@ -11,9 +11,17 @@ __pycache__/
 LaboratoryNote
 
 # Experiments
+# The macrodata is not tracked as the size is large. 
+# The raw data with high-sampling rate will be uploaded in the archive.
 Experiments/MacroData/data/MacroData_raw.mat
+Experiments/MacroData/data/SlipData_raw.mat
+Experiments/MacroData/data/DecimatedData_raw_paper.mat
+
+Experiments/MacroData/figure
 
 Experiments/DetectEvent/figure/p05*
+Experiments/DetectEvent/code/dev_plot_partial_event.m
+
 Experiments/DetectEvent/code/dev_plot_partial_event.m
 
 
