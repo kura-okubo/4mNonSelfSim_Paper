@@ -34,6 +34,7 @@ Experiments/GougePatch/GP_topography_scan/figure/*
 
 
 # utils
+utils
 utils/matlabcode_biax_v03/_*
 utils/matlabcode_biax_v03/inferno.m
 utils/matlabcode_biax_v03/viridis.m
