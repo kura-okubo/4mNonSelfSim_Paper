@@ -6,6 +6,11 @@ Process the macro data to find the timing of main shock, to plot the macroscopic
 ## DetectEvent
 Find the main stick-slip events and gouge events. We visually pick the gouge events by hands, applying the high-pass filter to improve the detectability of the small events embedded by the noise. See the details in the [readme of the directory](DetectEvent).
 
+## ExperimentalStats
+Compute the statistics of the stick-slip experiments.
+
+## GougePatch
+Analyze the particle size distribution of the gouge and the topography of the gouge patch. 
 
 ## Note of experiments index
 
