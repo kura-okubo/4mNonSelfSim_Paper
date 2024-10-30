@@ -6,6 +6,7 @@ __pycache__/
 *data_old*
 *debug*
 *.asv
+.ipynb_checkpoints
 .DS_store
 
 LaboratoryNote
@@ -22,7 +23,14 @@ Experiments/MacroData/figure
 Experiments/DetectEvent/figure/p05*
 Experiments/DetectEvent/code/dev_plot_partial_event.m
 
-Experiments/DetectEvent/code/dev_plot_partial_event.m
+Experiments/GougePatch/Gouge_ParticleSize/figure
+
+Experiments/GougePatch/GP_topography_scan/data/*.dat
+Experiments/GougePatch/GP_topography_scan/data/*.hdr
+Experiments/GougePatch/GP_topography_scan/data/*.mat
+
+Experiments/GougePatch/GP_topography_scan/figure/*
+
 
 
 # utils
