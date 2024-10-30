@@ -11,6 +11,7 @@ This repository performs the detection of events using the slip and strain, and 
 - Rupture velocity
 
 3. `p03_save_eventdata.m` compiles the data of slip, strain and AE traces with the event time window and dump it to `mat` file.
+>>> These files are the raw data of the experiments, which will be uploaded in the data archive. We process the data from these files in `mat` format.
 
 4. `p04_plot_slipevents.m` plots the slip, strain and AE of the stick-slip event. This is used to evaluate the foreshocks to be analyzed. `p04_2_plot_slownucleation.m` plots some events with very slow nucleation so that we need to increase the range of plot.
 
