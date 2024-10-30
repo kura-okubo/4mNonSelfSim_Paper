@@ -1,0 +1,30 @@
+# Datasheet of gouge-mediated seismic event time:  ,,,,,,,
+# This pick time is a crude estimation using p06_search_gougeevents.m. We need to relocate the hypocenter and event origin time from the picks listed below.,,,,,,,
+"# expr_id: index of experiments, event_id: index of stick-slip main events, gouge_loc [m]: location of gouge patch,  picktime [s]: event time of seismic event, AEtype: Ordinary or LFE, rup_type: nucleation location",,,,,,,
+expr_id,event_id,gouge_loc,picktime,AEtype,rup_type, gougeevent_id,doublecheck
+,,,,,,,
+fb03-087,5,1.75,47.6627,Ordinary,1,201,1
+fb03-087,9,1.75,59.10315,Ordinary,1,202,1
+fb03-087,10,1.75,63.7523,Ordinary,2,203,1
+fb03-087,11,1.75,66.1869,Ordinary,3,204,1
+fb03-087,17,1.75,85.98745,Ordinary,1,205,1
+fb03-087,21,1.75,100.59555,Ordinary,3,206,1
+fb03-087,33,1.75,146.5368,Ordinary,1,207,1
+fb03-087,40,1.75,178.9546,Ordinary,2,208,1
+fb03-087,43,1.75,193.772,Ordinary,1,209,1
+fb03-087,52,1.75,235.6315,Ordinary,2,210,1
+fb03-087,53,1.75,241.5129,Ordinary,1,211,1
+fb03-087,3,3.25,42.4675,Ordinary,1,212,1
+fb03-087,12,3.25,68.4881,Ordinary,1,213,1
+fb03-087,15,1.75,79.31985,Ordinary,3,214,1
+fb03-087,25,1.75,116.23725,Ordinary,1,215,1
+fb03-087,27,3.25,123.88305,Ordinary,1,216,1
+fb03-087,31,1.75,138.5483,Ordinary,3,217,1
+fb03-087,31,1.75,138.5495,Ordinary,3,218,1
+fb03-087,31,1.75,138.5508,Ordinary,3,219,1
+fb03-087,32,2.75,142.06585,Ordinary,2,220,1
+fb03-087,33,0.75,146.54075,Ordinary,1,221,1
+fb03-087,34,0.75,151.69225,Ordinary,2,222,1
+fb03-087,45,2.75,207.42905,Ordinary,1,223,1
+fb03-087,50,2.25,228.78745,Ordinary,2,224,1
+fb03-087,51,2.75,232.20575,Ordinary,1,225,1
