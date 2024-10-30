@@ -17,3 +17,5 @@ Find the main stick-slip events and gouge events. We visually pick the gouge eve
 | fb03-094 | 2023/07/26  | stick-slip experiment. same with fb03-087 | 
 | fb03-098 | 2023/07/30  | preparation of normal and shear loading. No gouge patches. same stress with fb03-087. | 
 | fb03-099 |  2023/07/30 | stick-slip experiment. same with fb03-087 | 
+
+We analyzed the fb03-086 and fb03-087 in this study. 
