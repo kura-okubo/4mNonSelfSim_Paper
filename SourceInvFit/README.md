@@ -16,6 +16,8 @@ We read the AE raw waveform from the event `.mat` data with the origin time dete
 ### 04_AE_convert_to_isoparametric_coordinate.ipynb
 We shifted the coordinates of source location such that we conduct the numerical simulation of wave propagation on the isoparametric coordinate system. The input file of OpenSWPC green function's table is output in `data/datacsv/green_in_AEevent_biax.txt`.
 
+## Fit the waveforms with the numerical models
+
 ### 05_numericalsimulation.ipynb
 We conducted the numerical simulation using OpenSWPC. We set the Green's function mode in the input file, and run in the HPC cluster. The Green's function is in `out/green/S00` in the sac format.
 
@@ -28,7 +30,8 @@ We conducted the source inversion by fitting the waveform. `07_2_allevents_AEeve
 ### 08_summarize_gougeevent_stats.ipynb
 We plotted the contour of VR to check the convergence of source inversion. Then, output `data/datacsv/gridsearch_bestparam_M0andTR_fb03-087.csv`, which includes the best fit parameters associated with $M_0$ and $T_R$. Note that the seismic moment is NOT $\hat{M}_0$. The magnitude is scated as $M_0 = \hat{M}_0/\sqrt{2}$.
 
-
+### 09_compute_waveformsimilarity_gougeevents.ipynb
+We compute the waveform similarity of the gouge events and plot the waveforms. We stack the gouge events, and compute the maximum value of the cross-colleration function between each event and the stacked waveform. Note that we do not normalize the waveform amplitude to weight for the larger event with a high S/N. The max_cc is dumped in `/data/datacsv/gridsearch_bestparam_M0andTR_fb03-087_withCC_fromASXX.csv`.
 
 
 
