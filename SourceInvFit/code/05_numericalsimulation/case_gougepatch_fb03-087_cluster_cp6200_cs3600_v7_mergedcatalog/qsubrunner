@@ -1,0 +1,25 @@
+#!/bin/sh
+#PBS -q D064 
+#PBS -P nkokubo
+#PBS -N 4m_openswpc
+#PBS -l select=48:mpiprocs=24:ompthreads=1
+#PBS -l walltime=0:30:00 
+#PBS -V
+
+cd ${PBS_O_WORKDIR}
+
+module purge
+module load gcc/8.1.0
+module load intel/compiler/64/2019/19.0.4
+module load intel/mpi/64/2019/6.154
+module load intel/mkl/64/2019/4.243
+module load GMT/6.0.0 # (/usr/local/gmt-6.0.0)
+module load GMT/4.4.0
+module load hdf5/1.10.5/intel/19.0.4
+module load netcdf-c/4.7.0/intel/19.0.4
+#module load netcdf-f/4.4.5/intel/19.0.4
+module load netcdf-f/4.4.5-r2/intel/19.0.4
+
+#mpirun -np 1 /lustre1/home1/nkokubo/packages/OpenSWPC_NIED/bin/swpc_3d.x -i ./input.inf
+date >> errtemp_${PBS_JOBID}.log
+mpirun -np 1152 /lustre1/home1/nkokubo/packages/OpenSWPC_NIED/bin/swpc_3d.x -i ./input.inf  > outtemp_${PBS_JOBID}.log 2>errtemp_${PBS_JOBID}.log
