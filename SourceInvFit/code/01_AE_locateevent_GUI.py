@@ -90,6 +90,7 @@ foreshock_eventset_merged = [4,   9,  18,  19,  20,  21,  24,  27,  30,  31,  37
 # foreshock_eventset_merged = [59,  61,  62,  69,  72,  75,
 #         76,  77,  81,  85,  88,  89,  95,  99, 100, 102, 109, 110, 111,
 #        118, 120, 126, 128, 129, 131]
+# foreshock_eventset_merged = [45]
 
 for i, df_evt in df_expr.iterrows():
     # if not df_evt['gougeevent_id']==20:
