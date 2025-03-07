@@ -1,12 +1,13 @@
 % 04 plot event data
 clear all;
-set(0,'DefaultTextFontsize',16, ...
-    'DefaultTextFontname','Arial', ...
+set(0,'DefaultTextFontsize',10, ...
+    'DefaultTextFontname','Helvetica', ...
     'DefaultTextFontWeight','normal', ...
-    'DefaultTextFontname','Arial', ...
-    'DefaultAxesFontsize',16, ...
-    'DefaultAxesFontname','Arial', ...
+    'DefaultTextFontname','Helvetica', ...
+    'DefaultAxesFontsize',10, ...
+    'DefaultAxesFontname','Helvetica', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -22,7 +23,7 @@ T = readtable(sprintf("../../Experiments/DetectEvent/data/p02_eventtype_fb03-%03
 event_type = zeros(length(size(T, 1)), 3); %1. event type %2. rupture vel %3. event start time from strain
 event_id = 29;
 
-event_datdir="../../Experiments/DetectEvent/data/eventdata_master";
+event_datdir="../data/eventdata_master";
 
 load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
 
@@ -85,7 +86,7 @@ mc_gougepatch = "w"; % sns_colorpalette(1, 9);
 
 fig = figure(1); clf; hold on; box on;
 fig.Units = 'point';
-fig.Position = [0 800 700 520];
+fig.Position = [0 800 350 300];
 
 dt_event = 0.2e-3; %0.2e-3;
 dt_event_k = round(dt_event*Fs_slip);
@@ -113,7 +114,7 @@ tmat_event = tmat_slip_shifted(1:dt_event_k:end);
 
 for j = 1:Ndat_event
 
-    Lw=1.5; 
+    Lw=1.0; 
     linecolor=lc_intp_event(tmat_event(j)); %0.5;
     
     plot(Disp_x/1e3, Dmat_event_span(j, :)*1e3, '-', 'Color', linecolor, "LineWidth", Lw);
@@ -125,17 +126,17 @@ boldlinestep_k = round(boldlinestep*1e-3/dt_event);
 
 for j = boldlinestep_k+1:boldlinestep_k:Ndat_event
 
-    Lw=2.0;
+    Lw=1.5;
     linecolor='k';  %3.5;
 
     plot(Disp_x/1e3, Dmat_event_span(j, :)*1e3, '-', 'Color', linecolor, "LineWidth", Lw);
     
     if tmat_event(j)*1e3<65
-        text(3.88, Dmat_event_span(j, end)*1e3, sprintf("%.0f", tmat_event(j)*1e3));
+        text(3.88, Dmat_event_span(j, end)*1e3, sprintf("%.0f", tmat_event(j)*1e3), "FontSize", 9.5);
     end
 end
 
-text(3.88, 36.5, "ms");
+text(3.88, 36.5, "ms", "FontSize", 9.);
 
 %% plot gouge event timing
 % mc_gougeevent = [255/255, 56/255, 16/255];
@@ -143,7 +144,7 @@ mc_gougeevent = '#FFD700'; %'#D55E00'; % foreshock_color
 
 %1. relocated onset just for debug
 gougeevent_ot = df_event.origin_time - Tstart; % Tstart is already shifted with the Tshift
-gougeevent_x =  df_event.X; %for event 61  %1.75;
+gougeevent_x =  df_event.X; %for event 72 %1.75;
 gougeevent_kt = find(tmat_event >= gougeevent_ot, 1); % use the t of the decimated data
 gougeevent_accumulatedslip = Dmat_event_span(gougeevent_kt, :);
 gougeevent_accumulatedslip_atpatch = interp1(Disp_x/1e3, gougeevent_accumulatedslip*1e3, gougeevent_x);
@@ -161,20 +162,21 @@ for ievent = 1:size(Aevents, 1)
     gougeevent_accumulatedslip = Dmat_event_span(gougeevent_kt, :);
     gougeevent_accumulatedslip_atpatch = interp1(Disp_x/1e3, gougeevent_accumulatedslip*1e3, event_loc)
     plot(event_loc, gougeevent_accumulatedslip_atpatch, "pentagram", "MarkerEdgeColor","k",...
-        "MarkerFaceColor", mc_gougeevent, "MarkerSize", 16);
+        "MarkerFaceColor", mc_gougeevent, "MarkerSize", 9, "LineWidth", 0.75);
+    text(event_loc+0.1, gougeevent_accumulatedslip_atpatch, sprintf("%d", Aevent.Var7));
 end
 
 %%
 
 % plot sensor location
-plot(Disp_x/1e3, zeros(length(Disp_x), 1), 's', 'Color', "k", 'MarkerSize', 10, "MarkerFaceColor",...
-    [0.6, 0.6, 0.6], "LineWidth", 1.0);
+plot(Disp_x/1e3, zeros(length(Disp_x), 1), 's', 'Color', "k", 'MarkerSize', 6, "MarkerFaceColor",...
+    [0.6, 0.6, 0.6], "LineWidth", 0.75);
 
 
 % plot gougepatch
 gougepatch_loc = 750 + (0:6)*500;
 plot(gougepatch_loc/1e3, zeros(length(gougepatch_loc), 1)-1.25, 'o', 'Color', 'k',...
-    'MarkerSize', 10, "MarkerFaceColor", mc_gougepatch, "LineWidth", 1.0);
+    'MarkerSize', 5, "MarkerFaceColor", mc_gougepatch, "LineWidth", 0.75);
 
 xlabel("Easting [m]");
 ylabel("Slip [μm]");
@@ -185,9 +187,20 @@ ylabel("Slip [μm]");
 % title(titlestr, "FontWeight", "normal");
 
 hcb = colorbar;
-hcb.FontSize = 17;
+hcb.FontSize = 10;
+
 ylabel(hcb, 'Time [ms]');
 caxis([0, Tlength]*1e3);
+
+% ref:https://www.mathworks.com/matlabcentral/answers/1449709-adjusting-width-of-horizontal-colorbar
+ax = gca();
+axPos = ax.Position;
+pos = hcb.Position;
+pos(1) = 0.80;
+pos(3) = 0.03;
+% pos(4) = 0.2;
+hcb.Position = pos;
+ax.Position = axPos;
 
 xlim([0, 4.1]);
 ylim([-2, 45]);
@@ -199,10 +212,11 @@ if ~exist(figdir) mkdir(figdir); end
 % set(gcf, 'color', 'none');    
 % set(gca, 'color', 'none');
 
-figname = sprintf(figdir+"/plot_cumulativeslip_master_fb03-%03d_event%02d_forFig2.eps", expr_id, event_id);
+figname = sprintf(figdir+"/plot_cumulativeslip_master_fb03-%03d_event%02d_forFig2.pdf", expr_id, event_id);
 
 if ifSavefig
-    exportgraphics(fig, figname, 'Resolution',80);
+    print(fig, figname, '-dpdf', '-loose', '-vector');
+    % exportgraphics(fig, figname);
 end
 
 

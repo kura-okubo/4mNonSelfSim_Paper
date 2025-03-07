@@ -3,5 +3,5 @@ Bandpass AE sensor: 0.10 - 1.00 MHz
 Bandpass AE butterworth order: 3
 Lowpass strain gauge : 0.01 MHz
 Strain contour plot decimate: 10
-first rupture velocity: 222.8 m/s
-second rupture velocity: 693.2 m/s
+first rupture velocity: NaN m/s
+second rupture velocity: NaN m/s
