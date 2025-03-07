@@ -7,6 +7,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ...
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -31,7 +32,7 @@ event_type = zeros(length(size(T, 1)), 3); %1. event type %2. rupture vel %3. ev
 for event_id = 1:size(T, 1)
     % event_id = 27;
 
-    event_datdir=sprintf("/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_%03d", expr_id);
+    event_datdir=sprintf("/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/p03_eventdata_FB03_%03d", expr_id);
 
     load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
 

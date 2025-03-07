@@ -7,6 +7,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ...
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -19,7 +20,7 @@ ifPlotAE = true; % true if plotting AE
 
 ifBandpass = 0; % Apply band-pass to find ordinary events.
 ifLFEpass = 0; % Set low-frequency range to detect LFEs.
-event_id = 40;
+event_id = 52;
 
 expr_id = 87;
 runID = sprintf('FB03_%03d', expr_id);
@@ -48,7 +49,7 @@ end
 
 foreshock_pt = 0; %[ms] visually pick from the plot
 
-event_datdir=sprintf("/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_%03d", expr_id);
+event_datdir=sprintf("/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/p03_eventdata_FB03_%03d", expr_id);
 
 load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
 

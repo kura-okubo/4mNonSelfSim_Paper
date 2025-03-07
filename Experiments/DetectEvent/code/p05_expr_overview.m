@@ -7,6 +7,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ... 
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -291,10 +292,12 @@ Stickslip_eventID = (1:Nevent)';
 Event_starttime = T.event_starttime;
 Nucleation_loc = rupture_type_char;
 Rupture_velocity = nuc_rupvel(:, 3);
+Shearstress_before = SS_before_all(:, 2);
+Shearstress_after = SS_after_all(:, 2);
 Stressdrop = sheardrop(:, 2);
 Slip_mean = average_slip(:, 2);
 Slip_std = average_slip(:, 3);
 
-Tstats = table(Stickslip_eventID,Event_starttime,Nucleation_loc,Rupture_velocity,Stressdrop,Slip_mean,Slip_std);
+Tstats = table(Stickslip_eventID,Event_starttime,Nucleation_loc,Rupture_velocity,Shearstress_before,Shearstress_after,Stressdrop,Slip_mean,Slip_std);
 
 write(Tstats, sprintf("../data/Macroscopic_stats_%s.csv", runID));

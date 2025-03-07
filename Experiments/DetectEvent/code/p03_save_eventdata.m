@@ -11,6 +11,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ...
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -81,7 +82,7 @@ for i = 1:length(T.event_id) %1:3
     Dmat_event = S.(runID).Dmat(st_ind:st_ind+winlen_slip-1, :);
 
     % Trim strain
-    pname_strain = sprintf('/Volumes/4mGouge_WorkHDD/FB03data/fb03-%03d/biax/', expr_id);
+    pname_strain = sprintf('/Volumes/Okuboetal2025_masterHDD/FB03data/fb03-%03d/biax/', expr_id);
     fname = sprintf('fb03-%03d', expr_id);
 
     rdecim = 0;
@@ -90,7 +91,7 @@ for i = 1:length(T.event_id) %1:3
 
     %% Trim AE
     fs_read = 1e7;
-    pname_ae = sprintf('/Volumes/4mGouge_WorkHDD/FB03data/fb03-%03d/ae/', expr_id);
+    pname_ae = sprintf('/Volumes/Okuboetal2025_masterHDD/FB03data/fb03-%03d/ae/', expr_id);
     [AEdatmat,tmat_AE_event,Ch_info]=SBENCHreader(Tstart,event_winlen,pname_ae,fname, 'fs_read', fs_read, 'pretrigger', false, 'rename', true);
 
     %% Load macroscopic data at Fs=1MHz
@@ -109,7 +110,7 @@ for i = 1:length(T.event_id) %1:3
     SSmacro=Macro_datmat(:,1)*1e-6/(4*0.1);
 
     % Save event data
-    event_datdir=sprintf("/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_%03d", expr_id);
+    event_datdir=sprintf("/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/p03_eventdata_FB03_%03d", expr_id);
     if ~exist(event_datdir) mkdir(event_datdir); end
 
     save(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id), ...

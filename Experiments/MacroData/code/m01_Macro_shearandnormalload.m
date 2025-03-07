@@ -16,10 +16,10 @@ addpath("../../../utils/matlabcode_biax_v03");
 
 M = struct();
 
-for expr_id = [86, 87, 93, 94, 99]
+for expr_id = [86, 87, 93, 94] %, 99] % 93-94 same condition with 86-87 with GP
     expr_id
     % pname = sprintf('/Volumes/NIEDSSD01/FB03data/fb03-%03d/biax/', expr_id);
-    pname = sprintf('/Volumes/4mGouge_WorkHDD/FB03data/fb03-%03d/biax/', expr_id);
+    pname = sprintf('/Volumes/Okuboetal2025_masterHDD/FB03data/fb03-%03d/biax/', expr_id);
     runID = sprintf('fb03-%03d', expr_id);
 
     pname, runID
@@ -34,9 +34,9 @@ for expr_id = [86, 87, 93, 94, 99]
 end
 
 %
-% save("../data/MacroData_raw.mat", "M");
+save("../data/MacroData_raw.mat", "M"); 
 %%
-load("../data/MacroData_raw.mat", "M");
+% load("../data/MacroData_raw.mat", "M");
 
 %% Plot Main stick-slip experiments
 fig = figure(1);

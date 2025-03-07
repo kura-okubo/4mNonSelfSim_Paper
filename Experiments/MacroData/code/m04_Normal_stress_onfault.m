@@ -18,7 +18,7 @@ D = struct();
 
 for expr_id = [86, 87, 93, 94]
     expr_id
-    pname = sprintf('/Volumes/4mGouge_WorkHDD/FB03data/fb03-%03d/biax/', expr_id);
+    pname = sprintf('/Volumes/Okuboetal2025_masterHDD/FB03data/fb03-%03d/biax/', expr_id);
     runID = sprintf('fb03-%03d', expr_id);
     
     pname, runID

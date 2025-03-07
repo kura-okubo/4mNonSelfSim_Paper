@@ -7,6 +7,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ... 
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -58,7 +59,7 @@ SGT_x = SGT_x + xtop_shift;
 %% Load event init time
 tevent_start=importdata(sprintf("../data/FB03_%03d_p01_eventstarttime.csv", expr_id));
 
-pname = sprintf('/Volumes/4mGouge_WorkHDD/FB03data/fb03-%03d/biax/', expr_id);
+pname = sprintf('/Volumes/Okuboetal2025_masterHDD/FB03data/fb03-%03d/biax/', expr_id);
 fname = sprintf('fb03-%03d', expr_id);
 
 event_type = zeros(length(tevent_start), 3); %1. event type %2. rupture vel %3. event start time from strain

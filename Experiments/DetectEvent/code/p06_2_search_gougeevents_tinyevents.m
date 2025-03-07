@@ -7,6 +7,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ...
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -17,9 +18,9 @@ addpath("../../../utils/matlabcode_biax_v03");
 ifSavefig = false;
 ifPlotAE = true; % true if plotting AE
 
-ifBandpass = 1; % Apply band-pass to find ordinary events.
+ifBandpass = 0; % Apply band-pass to find ordinary events.
 ifLFEpass = 0; % Set low-frequency range to detect LFEs.
-event_id = 1;
+event_id = 55; %52;
 
 expr_id = 87;
 runID = sprintf('FB03_%03d', expr_id);
@@ -59,7 +60,7 @@ end
 
 foreshock_pt = 0; %[ms] visually pick from the plot
 
-event_datdir=sprintf("/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_%03d", expr_id);
+event_datdir=sprintf("/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/p03_eventdata_FB03_%03d", expr_id);
 
 load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
 
@@ -99,10 +100,10 @@ if ifLFEpass
     fmax = 6e4;
 else
     fmin = 1e5;%1e5;
-    fmax = 2e6;%6e5;
+    fmax = 6e5; 2e6;%6e5;
 end
 
-ampnorm_AE = 5; %5; %3; %5 %20; %5e-5;
+ampnorm_AE = 100; %10; %20; 5; %5; %3; %5 %20; %5e-5;
 
 % apply bandpass filter
 if ifBandpass

@@ -7,6 +7,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ... 
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -15,6 +16,8 @@ addpath("../../../utils/matlabcode_biax_v03");
 %%
 movmean_winlen = 1e-3; %[s]
 t_ave_transient = 2e-3; %[s] the time span to evaluate the offset before and after the time snap.
+
+IfSaveData = false;
 
 %% Load from mat file
 % Run Experiments/MacroData/code/Slip_onfault.m to load the slip time
@@ -192,8 +195,10 @@ ylim([0, 2.5]);
 %% Save the event time to plot the AE waveform
 
 tevent_start = tmat_trim(event_initid);
-writematrix(tevent_start,sprintf('../data/%s_p01_eventstarttime.csv', runID)); 
 
+if IfSaveData
+    writematrix(tevent_start,sprintf('../data/%s_p01_eventstarttime.csv', runID)); 
+end
 
 
 %% Plot slip accumulation simple

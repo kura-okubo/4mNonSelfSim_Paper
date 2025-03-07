@@ -52,7 +52,7 @@ event_id = 26;
 
     foreshock_pt = 0; %[ms] visually pick from the plot
 
-    event_datdir=sprintf("/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_%03d", expr_id);
+    event_datdir=sprintf("/Volumes/Okuboetal2025_masterHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_%03d", expr_id);
 
     load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
 

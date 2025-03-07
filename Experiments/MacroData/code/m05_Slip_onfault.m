@@ -16,14 +16,14 @@ addpath("../../../utils/matlabcode_biax_v03");
 
 S = struct();
 
-expr_ids = [87, 94, 99]; %87, 94];
+expr_ids = [87, 94]; %99]; %87, 94];
 tends = [13e6, 11e6, 18e6]; % Trim the data to reduce the size
 % for expr_id = [87]
 for i = 1:length(expr_ids)
     clear Dmat
     expr_id = expr_ids(i);
     tend = tends(i);
-    pname = sprintf('/Volumes/4mGouge_WorkHDD/FB03data/fb03-%03d/disp/', expr_id);
+    pname = sprintf('/Volumes/Okuboetal2025_masterHDD/FB03data/fb03-%03d/disp/', expr_id);
     runID = sprintf('fb03-%03d', expr_id);
     
     pname, runID

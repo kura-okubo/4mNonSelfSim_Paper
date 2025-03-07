@@ -7,6 +7,7 @@ set(0,'DefaultTextFontsize',16, ...
     'DefaultAxesFontsize',16, ...
     'DefaultAxesFontname','Arial', ...
     'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 figdir="../figure";
 if ~exist(figdir) mkdir(figdir); end
@@ -32,7 +33,7 @@ event_type = zeros(length(size(T, 1)), 3); %1. event type %2. rupture vel %3. ev
 for event_id = [11, 14, 16, 18, 23, 28, 36]
     % event_id = 14;
 
-    event_datdir=sprintf("/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_%03d", expr_id);
+    event_datdir=sprintf("/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/p03_eventdata_FB03_%03d", expr_id);
 
     load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
 
@@ -347,7 +348,8 @@ for event_id = [11, 14, 16, 18, 23, 28, 36]
     sgtitlestr = sprintf("FB03-%03d event %02d: T%4.4f-%4.4f[s]", ...
         expr_id, event_id, Tstart, Tstart+Tlength);
     % hSG = sgtitle(sgtitlestr, "FontWeight", "bold", "FontSize", 22);
-    text(-5, 4.35, sgtitlestr, "FontWeight", "bold", "FontSize", 21);
+    % text(-5, 4.35, sgtitlestr, "FontWeight", "bold", "FontSize", 21);
+    text(-0.6, 1.05, sgtitlestr, "FontWeight", "bold", "FontSize", 21,'Units','normalized');
     pan on;
 
     gca();
