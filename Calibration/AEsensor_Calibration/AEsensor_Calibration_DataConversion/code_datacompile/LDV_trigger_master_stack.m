@@ -26,8 +26,12 @@ figdir = "../figure/debug_convertdata";
 if ~isfolder(figdir); mkdir(figdir); end
 
 
-casename_list=["master_S25V", "master_S100V", "master_S150V", "master_S200V",...
-    "termination_1Mohm_S200V", "testdata_S200V", "testdata_side_S200V", "granite_S200V"];
+% casename_list=["master_S25V", "master_S100V", "master_S150V", "master_S200V",...
+%     "termination_1Mohm_S200V", "testdata_S200V", "testdata_side_S200V", "granite_S200V"];
+
+casename_list=["master_S200V", "testdata_S200V", "testdata_side_S200V"]; % "master_S25V", "master_S100V",  "master_S150V"]; %dump only the test cases
+
+casename_list_out=["frontcenter_S200V", "fronttop_S200V", "sidecenter_S200V"]; % "frontcenter_S25V", "frontcenterS100V",  "frontcenter_S150V"];
 
 for ic =1:length(casename_list)
 % ic = 4;
@@ -46,7 +50,7 @@ tr_stacked = mean(A.datmat);
 S.t = A.tmat;
 S.LDV =  mean(A.datmat)' * gain_LDV;
 Stable = struct2table(S);
-foname = sprintf("../data/LDV_%s.csv", casename);
+foname = sprintf("../data/LDV_%s.csv", casename_list_out(ic));
 writetable(Stable,foname);
 
 end
@@ -58,7 +62,7 @@ Nevent_linprog = 18000; % 2000 x 9 cases
 input_ohm = 50; % input inpedence
 gain_LDV = 0.02;
 
-V = [10, 25, 50, 75, 100 , 125, 150, 175, 200]; %[V]
+V = [10, 25, 50, 75, 100, 125, 150, 175, 200]; %[V]
 
 casename="linearprog";
 Nevent_linprog = 18000; % 2000 x 9 cases
