@@ -20,7 +20,7 @@ ifPlotAE = true; % true if plotting AE
 
 ifBandpass = 0; % Apply band-pass to find ordinary events.
 ifLFEpass = 0; % Set low-frequency range to detect LFEs.
-event_id = 52;
+event_id = 35;
 
 expr_id = 87;
 runID = sprintf('FB03_%03d', expr_id);
@@ -66,7 +66,7 @@ assert(Tstart == T.event_starttime(event_id));
 
 % set id list to plot longer xlimit
 if expr_id == 87
-    xlimit_long_list = [23, 45];
+    xlimit_long_list = [23, 45, 35];
 elseif expr_id == 94
     xlimit_long_list = [13];
 end
@@ -92,7 +92,7 @@ else
     fmax = 2e6;%6e5;
 end
 
-ampnorm_AE = 20; %3; %5 %20; %5e-5;
+ampnorm_AE = 50 % 20; %3; %5 %20; %5e-5;
 
 % apply bandpass filter
 if ifBandpass
