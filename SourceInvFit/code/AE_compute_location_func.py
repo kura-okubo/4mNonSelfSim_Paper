@@ -218,7 +218,7 @@ def gui_pick_arrival(fig, st_obs):
 			sm = plt.cm.ScalarMappable(cmap=cmap, norm=LogNorm(vmin=vmin,vmax=vmax))
 			cbar = plt.colorbar(sm, ax=ax4, orientation='vertical', ticks=cticks, pad=0.05, extend='both')
 
-			cbar.set_label('STD pick time diff. [$\mu$s]')
+			cbar.set_label(r'STD pick time diff. [$\mu$s]')
 
 			# decorate figures
 			# plot best location 

@@ -1,11 +1,15 @@
-# Documentation of Moment Tensor inversion tools
+# Event picking and preliminary source inversion
+
+This repogitory performs the event picking and relocation, extracting the AE waveforms and preliminary source inversion.
+
+**NOTE:** the source parameter obtained here is NOT the one evaluated for the main result. See `ComputeScaling` for the main processing to estimate the source paramters of gouge patch-generated events.
 
 ## AE detection and location
-We made a set of scripts and notebooks to evaluate the seismic moment tensor and the duration of gouge-mediated seismic events.
+
 
 ### 01_AE_locateevent_GUI.py
 Pick the first arrival time to determine the event locations using the GUI.
-We picked around four stations, and conducted the grid search to find the most likely location. We checked if it consistents to the location of gouge patches, and saved the picked time into `data/AElocation/arrivalpick`.
+We picked around four stations, and conducted the grid search to find the most likely location. We checked if it consistents to the location of gouge patches, and saved the picked time into `data/AElocation/arrivalpick`. Note that we checked the reproducibility of the raw event waveforms from the raw binary continuous data in "/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_(event_id)/" and "/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/p03_eventdata_FB03_(event_id)/".
 
 ### 02_AE_relocation.ipynb
 To better fit between the data and numerical waveforms, we visually adjusted the first arrival time by relocating the source locations. The output is stored in `data/AElocation/relocation`. `02_AE_relocation_all.py` is the script to run for all the gouge events.

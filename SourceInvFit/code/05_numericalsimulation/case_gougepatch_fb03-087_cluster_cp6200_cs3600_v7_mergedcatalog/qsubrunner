@@ -21,5 +21,5 @@ module load netcdf-c/4.7.0/intel/19.0.4
 module load netcdf-f/4.4.5-r2/intel/19.0.4
 
 #mpirun -np 1 /lustre1/home1/nkokubo/packages/OpenSWPC_NIED/bin/swpc_3d.x -i ./input.inf
-date >> errtemp_${PBS_JOBID}.log
-mpirun -np 1152 /lustre1/home1/nkokubo/packages/OpenSWPC_NIED/bin/swpc_3d.x -i ./input.inf  > outtemp_${PBS_JOBID}.log 2>errtemp_${PBS_JOBID}.log
+date > outtemp_${PBS_JOBID}.log
+mpirun -np 1152 $HOME/packages/4mNonSelfSim_OpenSWPC/bin/swpc_3d.x -i ./input.inf >> outtemp_${PBS_JOBID}.log 2>&1

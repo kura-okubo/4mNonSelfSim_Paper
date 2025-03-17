@@ -93,9 +93,9 @@
 
   ntdec_s          = 100 !!25 !100 !25               !! time decimation of snapshot
                                         !- (specify 1 for no decimation)
-  idec             = 2 !2                !! x-decimation for snapshot
-  jdec             = 2 !2                !! y-decimation for snapshot
-  kdec             = 2 !2                !! z-decimation for snapshot
+  idec             = 10 !2                !! x-decimation for snapshot
+  jdec             = 10 !2                !! y-decimation for snapshot
+  kdec             = 10 !2                !! z-decimation for snapshot
 
   !! ----------------------------------------------------------------------- !!
   !! Waveform Output
