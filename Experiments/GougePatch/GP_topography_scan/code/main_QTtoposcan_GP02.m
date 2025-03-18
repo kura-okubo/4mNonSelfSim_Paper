@@ -115,14 +115,16 @@ end
 %% Plot result
 fig = figure(2);
 fig.Units = 'point';
-fig.Position = [0 500 270 270];
+fig.Position = [0 500 300 300];
 clf(fig,'reset'); cla(fig,'reset'); 
 hold on; box on; axis equal;
 colormap("viridis");
 
-% [C, h] = contourf(x1vec, x2vec, Ztopo, 151, 'Tag', "contourf");
-pcolor(x1vec, x2vec, Ztopo, 'Tag', "topo");
-% set(h,'LineColor','none');
+xshift = 0.21; % adjust center x
+
+[C, h] = contourf(x1vec-xshift, x2vec, Ztopo, 151, 'Tag', "topo");
+% pcolor(x1vec, x2vec, Ztopo, 'Tag', "topo");
+set(h,'LineColor','none');
 % set(h, 'EdgeColor', 'none');
 
 cb = colorbar;
@@ -151,6 +153,9 @@ yticks([-8, -4, 0, 4, 8 ]);
 
 xlabel("x [mm]");
 ylabel("z [mm]");
+
+% plot scale
+plot([-4, 4], [-5, -5], "w-")
 
 % convert contourf as raster
 
@@ -185,6 +190,10 @@ exportgraphics(gca, '../figure/Ztopo_processed.png', "Resolution", 70);
 %     toRemove = setxor(contents, toKeep);
 %     set(toRemove, 'visible', 'off');
 % end
+
+%3.
+% if isempty(findall(rasterFigure, 'type', 'surface'))
+% if isempty(findall(rasterFigure, 'type', 'contour'))
 
 % Remove comment out after downloading and modifying vecrast
 vecrast_topo(fig, '../figure/Ztopo_processed', 300, 'bottom', 'eps');
