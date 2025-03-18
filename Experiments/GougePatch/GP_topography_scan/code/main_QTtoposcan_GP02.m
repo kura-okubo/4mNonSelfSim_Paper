@@ -2,13 +2,14 @@
 % 2023/02/23 Kurama Okubo
 % 2023/12/21 update for rectangular host rock
 clear all;
-set(0,'DefaultTextFontsize',14, ...
+set(0,'DefaultTextFontsize',10, ...
     'DefaultTextFontname','Arial', ...
     'DefaultTextFontWeight','normal', ...
     'DefaultTextFontname','Arial', ...
-    'DefaultAxesFontsize',14, ... 
+    'DefaultAxesFontsize',10, ... 
     'DefaultAxesFontname','Arial', ...
-    'DefaultLineLineWidth', 1.5)
+    'DefaultLineLineWidth', 1.0)
+set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
 
 addpath("../../../../utils/matlabcode_biax_v03");
 
@@ -31,108 +32,167 @@ param.gsize = 20;
 param.sig = 10; 
 
 %% Read data
-pname = '../data/';
-fname = 'GPTOPO-02_001';
 
-[tmat, Zmat, Trigmat]=TEACtopo(pname,fname);
+ifLoadfromOriginal = false;
 
-figure(1); clf;
-subplot(2, 1, 1);
-plot(tmat, Zmat, "+-");
+if ifLoadfromOriginal
+    
+    pname = '../data/';
+    fname = 'GPTOPO-02_001';
+    
+    [tmat, Zmat, Trigmat]=TEACtopo(pname,fname);
+    
+    figure(1); clf;
+    subplot(2, 1, 1);
+    plot(tmat, Zmat, "+-");
+    
+    subplot(2, 1, 2);
+    plot(tmat, Trigmat);
+    
+    %% Trim the data
+    % We have an artifact at the end of the data due to the stop signal from TEAC.
+    % Thus, trim the signal
+    et_ind = find(tmat>1.8e4, 1);
+    tmat = tmat(1:et_ind);
+    Zmat = Zmat(1:et_ind);
+    Trigmat = Trigmat(1:et_ind);
+    
+    %% Downsampling the data
+    % TEAC data is sampled high-frequency enough to avoid the aliasing along
+    % scan trace.
+    param.rdecim = ceil(param.fs_TEAC/param.fs);
+    Zmat_downsampled = decimate(Zmat,param.rdecim, 8);
+    tmat_downsampled = downsample(tmat,param.rdecim);
+    Trigmat_downsampled = decimate(Trigmat,param.rdecim);
+    
+    figure(9); clf; hold on;
+    plot(tmat, Zmat, "+-");
+    plot(tmat_downsampled, Zmat_downsampled, "o-");
+    xlim([3720, 3750]);
+    
+    %%
+    figure(10); clf; hold on;
+    plot(tmat_downsampled(1:end-1), diff(Trigmat_downsampled), "o-");
+    % xlim([3720, 3750]);
+    
+    %% Plot raw data
+    fig=figure(11); clf; hold on;
+    fig.Units = 'point';
+    fig.Position = [0 500 800 600];
+    clf(fig,'reset'); cla(fig,'reset'); 
+    hold on; box on; axis equal;
+    
+    xlimit=[0, 1.7786e4];
+    
+    subplot(211); hold on; box on;
+    plot(tmat_downsampled, Zmat_downsampled, "ko-");
+    title("Laser Z raw data");
+    xlim(xlimit);
+    xlabel("Time [s]");
+    ylabel("u [μm]");
+    
+    subplot(212); hold on; box on;
+    plot(tmat_downsampled(1:end-1), diff(Trigmat_downsampled), "bo-");
+    title("Trigger signal raw data");
+    xlim(xlimit);
+    xlabel("Time [s]");
+    ylabel("Volt [V]");
+    
+    exportgraphics(gcf, sprintf('../figure/Ztopo_rawdata_%s.png', fname), "Resolution", 150);
+    
+    
+    %% Compute topography from the Zmat time series
+    [Ztopo, x1vec, x2vec, I] = compute_QTtopo_rect(Zmat_downsampled, tmat_downsampled, Trigmat_downsampled, param);
 
-subplot(2, 1, 2);
-plot(tmat, Trigmat);
-
-%% Trim the data
-% We have an artifact at the end of the data due to the stop signal from TEAC.
-% Thus, trim the signal
-et_ind = find(tmat>1.8e4, 1);
-tmat = tmat(1:et_ind);
-Zmat = Zmat(1:et_ind);
-Trigmat = Trigmat(1:et_ind);
-
-%% Downsampling the data
-% TEAC data is sampled high-frequency enough to avoid the aliasing along
-% scan trace.
-param.rdecim = ceil(param.fs_TEAC/param.fs);
-Zmat_downsampled = decimate(Zmat,param.rdecim, 8);
-tmat_downsampled = downsample(tmat,param.rdecim);
-Trigmat_downsampled = decimate(Trigmat,param.rdecim);
-
-figure(9); clf; hold on;
-plot(tmat, Zmat, "+-");
-plot(tmat_downsampled, Zmat_downsampled, "o-");
-xlim([3720, 3750]);
-
-%%
-figure(10); clf; hold on;
-plot(tmat_downsampled(1:end-1), diff(Trigmat_downsampled), "o-");
-% xlim([3720, 3750]);
-
-%% Plot raw data
-fig=figure(11); clf; hold on;
-fig.Units = 'point';
-fig.Position = [0 500 800 600];
-clf(fig,'reset'); cla(fig,'reset'); 
-hold on; box on; axis equal;
-
-xlimit=[0, 1.7786e4];
-
-subplot(211); hold on; box on;
-plot(tmat_downsampled, Zmat_downsampled, "ko-");
-title("Laser Z raw data");
-xlim(xlimit);
-xlabel("Time [s]");
-ylabel("u [μm]");
-
-subplot(212); hold on; box on;
-plot(tmat_downsampled(1:end-1), diff(Trigmat_downsampled), "bo-");
-title("Trigger signal raw data");
-xlim(xlimit);
-xlabel("Time [s]");
-ylabel("Volt [V]");
-
-exportgraphics(gcf, sprintf('../figure/Ztopo_rawdata_%s.png', fname), "Resolution", 150);
-
-
-%% Compute topography from the Zmat time series
-[Ztopo, x1vec, x2vec, I] = compute_QTtopo_rect(Zmat_downsampled, tmat_downsampled, Trigmat_downsampled, param);
-
-%% Save data
-save(sprintf("../data/Ztopo_data_%s.mat", fname), "x1vec", "x2vec", "Ztopo", "I");
-
+    %% Save data
+    save(sprintf("../data/Ztopo_data_%s.mat", fname), "x1vec", "x2vec", "Ztopo", "I");
+else
+    % loading the preprocessed 2D topography data
+    fname = 'GPTOPO-02_001';
+    load(sprintf("../data/Ztopo_data_%s.mat", fname));
+end
 
 %% Plot result
 fig = figure(2);
 fig.Units = 'point';
-fig.Position = [0 500 500 500];
+fig.Position = [0 500 270 270];
 clf(fig,'reset'); cla(fig,'reset'); 
 hold on; box on; axis equal;
 colormap("viridis");
 
-[C, h] = contourf(x1vec, x2vec, Ztopo, 151);
-set(h,'LineColor','none');
+% [C, h] = contourf(x1vec, x2vec, Ztopo, 151, 'Tag', "contourf");
+pcolor(x1vec, x2vec, Ztopo, 'Tag', "topo");
+% set(h,'LineColor','none');
 % set(h, 'EdgeColor', 'none');
 
 cb = colorbar;
-cb.Label.String = "Height [um] ";
+cb.Label.String = "Height [μm]";
+
+%https://jp.mathworks.com/matlabcentral/answers/1449709-adjusting-width-of-horizontal-colorbar#answer_783834
+ax1 = gca();
+ax1Pos = ax1.Position;
+pos = cb.Position;
+pos(3) = 0.8*pos(3);
+cb.Position = pos;
+% The above automatically change the ax1.Position
+% We restore the origninal ax1.Position
+ax1.Position = ax1Pos;
+
+
 % shading interp
 shading flat
-caxis([0, 60]); %[0, 80]);
+clim([0, 60]); %[0, 80]);
 
 xlim([-8, 8]);
 ylim([-8, 8]);
 
-xlabel("x1 [mm]");
-ylabel("x2 [mm]");
+xticks([-8, -4, 0, 4, 8 ]);
+yticks([-8, -4, 0, 4, 8 ]);
 
-exportgraphics(gca, '../figure/Ztopo_processed.png', "Resolution", 150);
-% savefig('../figure/Ztopo_processed.fig');
-% exportgraphics(gca, '../figure/Ztopo_processed.eps');
+xlabel("x [mm]");
+ylabel("z [mm]");
 
-% Note: There is a limitation in the horizontal stripes in the figure
-% which could be the unbalance between the RL and LR scanning.
-% We need to either one-way scan or use 2D laser displacement sensor.
+% convert contourf as raster
+
+exportgraphics(gca, '../figure/Ztopo_processed.png', "Resolution", 70);
+
+% Save the contourf with raster
+% We modified vecrast.m for the GP topography plot.
+% Theo Michelis (2025). vecrast (https://www.mathworks.com/matlabcentral/fileexchange/154667-vecrast), MATLAB Central File Exchange. Retrieved March 18, 2025.
+% Copyright (c) 2023, Theodoros Michelis
+% All rights reserved.
+
+
+% To save the mixed raster and vector file, change the following section in
+% vecrast:
+
+% 1. 
+% for i = 1:length(axesHandleVector)
+%     axesPosition{i} = get(axesHandleVector(i), 'position'); % Fix: get axes size
+%     toRemove = [...
+%         findobj(axesHandleVector(i).Children, 'Tag','topo');... % update
+%         ];
+%     set(toRemove, 'visible', 'off');
+% end
+
+% 2. 
+% for i = 1:length(axesHandleRaster)
+%     axesPosition{i} = get(axesHandleRaster(i), 'position'); % Fix: get axes size
+%     contents = findall(axesHandleRaster(i));
+%     toKeep = [...
+%         findobj(axesHandleRaster(i).Children, 'Tag','topo');... % update
+%         ];
+%     toRemove = setxor(contents, toKeep);
+%     set(toRemove, 'visible', 'off');
+% end
+
+% Remove comment out after downloading and modifying vecrast
+vecrast_topo(fig, '../figure/Ztopo_processed', 300, 'bottom', 'eps');
+
+% We swhitched to the one-way scanning with trigger signals.
+%%% Note: There is a limitation in the horizontal stripes in the figure
+%%% which could be the unbalance between the RL and LR scanning.
+%%% We need to either one-way scan or use 2D laser displacement sensor.
 
 %% Plot surface
 fig = figure(3);
@@ -150,7 +210,7 @@ cb.Label.String = "Height [um] ";
 shading interp
 % shading flat
 % shading faceted 
-caxis([0, 80]);
+clim([0, 80]);
 
 xlim([-15, 15]);
 ylim([-15, 15]);
@@ -165,7 +225,7 @@ zlabel("Height [μm]");
 
 daspect([1 1 5e1]);
 
-exportgraphics(gca, '../figure/Ztopo_surface.png', "Resolution", 150);
+exportgraphics(gca, '../figure/Ztopo_surface.png', "Resolution", 70);
 
 % % % Note: There is a limitation in the horizontal stripes in the figure
 % % % which could be the unbalance between the RL and LR scanning.
@@ -188,7 +248,7 @@ set(h, 'EdgeColor', 'none');
 shading interp
 shading flat
 % shading faceted 
-caxis([-20, 110]);
+clim([-20, 110]);
 
 xlim([-15, 15]);
 ylim([-15, 15]);
@@ -228,7 +288,6 @@ cb.Label.String = "Height [um] ";
 
 xbounds = [-5, 5];
 plotinds = find((x2vec > xbounds(1)) & (x2vec < xbounds(2)));
-plotstep = 40;
 
 plotind_centerind = find(x2vec >= 0, 1);
 %%
@@ -254,13 +313,13 @@ ylim([-3, 200]);
 xlabel("x1 [mm]");
 ylabel("Topography [μm]");
 
-exportgraphics(gca, '../figure/Ztopo_crosssection.png', "Resolution", 150);
+exportgraphics(gca, '../figure/Ztopo_crosssection.png', "Resolution", 70);
 
 %% Compute mean in 1D Line
 
 Ztopo_line = Ztopo(plotind_centerind, :);
 Ztopo_line(Ztopo_line<10) = NaN;
-mean_topo = mean(Ztopo_line, "omitnan")
+mean_topo = mean(Ztopo_line, "omitnan");
 max_topo = max(Ztopo_line);
 fprintf("Line mean topo: %4.2fµm, max topo: %4.2fµm\n", mean_topo, max_topo);
 
@@ -324,7 +383,7 @@ fig = figure(5);
 fig.Units = 'point';
 fig.Position = [0 500 600 500];
 clf(fig,'reset'); cla(fig,'reset'); 
-hold on; box on; grid on;
+hold on; box on; grid off;
 
 lh = plot(f, pxx_all, "k-");
 
@@ -341,6 +400,7 @@ plot(f, mean(pxx_all, 1), "r-", "LineWidth", 3);
 % Dunham et al. 2011b
 Pm = @(k, alpha) (2*pi)^3 * alpha^2 ./ abs(k);
 
+% plot grid
 alpha1 = [10^(-6), 10^(-2), 10^(-1)];
 for i = 1:3
     pxxm = Pm(f(2:end)*1e3, alpha1(i));
@@ -356,7 +416,7 @@ set(gca, 'YScale', 'log');
 xlabel("k_{x1} [1/mm]");
 ylabel("PSD of topography [mm^3]");
 
-exportgraphics(gca, '../figure/Ztopo_PSD.png', "Resolution", 150);
+exportgraphics(gca, '../figure/Ztopo_PSD.png', "Resolution", 70);
 
 %%
 
