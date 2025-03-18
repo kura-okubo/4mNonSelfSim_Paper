@@ -3,4 +3,6 @@ We measured the topography of the gouge patch using the laser displacement senso
 
 <img src="P1080901_topo.JPG" alt="GP topography measurement" width="400">
 
+<img src="P1080908_topo.JPG" alt="Laser displacement sensor" width="400">
+
 <!-- We also compute the spectrum of heterogeneity by `code/evaluate_spectrum_GP02.m`. -->
