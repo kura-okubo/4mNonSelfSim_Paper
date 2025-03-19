@@ -1,4 +1,6 @@
 % 05 plot overview of stick-slip experiments
+% 2025.3.19 add units
+
 clear all;
 set(0,'DefaultTextFontsize',16, ...
     'DefaultTextFontname','Arial', ...
@@ -298,6 +300,9 @@ Stressdrop = sheardrop(:, 2);
 Slip_mean = average_slip(:, 2);
 Slip_std = average_slip(:, 3);
 
-Tstats = table(Stickslip_eventID,Event_starttime,Nucleation_loc,Rupture_velocity,Shearstress_before,Shearstress_after,Stressdrop,Slip_mean,Slip_std);
+Tstats = table(Stickslip_eventID,Event_starttime,Nucleation_loc,Rupture_velocity,Shearstress_before,Shearstress_after,Stressdrop,Slip_mean,Slip_std, ...
+    'VariableNames',  {'stickslip_eventID', 'event_starttime[s]', 'nucleation_loc', 'rupture_velocity[m/s]',...
+    'macroshearstress_beforeevent[MPa]', 'macroshearstress_afterevent[MPa]', 'macroshearstress_drop[MPa]',...
+    'slip_mean[mm]', 'slip_std[mm]'});
 
-write(Tstats, sprintf("../data/Macroscopic_stats_%s.csv", runID));
+write(Tstats, sprintf("../data/Macroscopic_stats_%s.csv", runID), 'WriteVariableNames', true);

@@ -106,7 +106,7 @@ for i = 1:length(T.event_id) %1:3
     DXeast=-DX(:,2)+mean(DX(1:offrange,2));
     
     % === Mechanical data ===
-    NPmacro=(Macro_datmat(:,2:9)-2.5e6)*1e-6;
+    NPmacro=(Macro_datmat(:,2:9)-2.5e6)*1e-6; % 2.5 MPa offset in the NP measurement by recording system
     SSmacro=Macro_datmat(:,1)*1e-6/(4*0.1);
 
     % Save event data

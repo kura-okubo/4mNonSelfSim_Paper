@@ -1,4 +1,4 @@
-Stickslip_eventID,Event_starttime,Nucleation_loc,Rupture_velocity,Shearstress_before,Shearstress_after,Stressdrop,Slip_mean,Slip_std
+stickslip_eventID,event_starttime[s],nucleation_loc,rupture_velocity[m/s],macroshearstress_beforeevent[MPa],macroshearstress_afterevent[MPa],macroshearstress_drop[MPa],slip_mean[mm],slip_std[mm]
 1,36.645495,B,NaN,0.687261108398437,0.632095825195312,0.0551652832031249,0.0951328827255832,0.0034166330998302
 2,40.942166,W,26.3002835988919,0.646850463867187,0.62880908203125,0.0180413818359375,0.0327369188867422,0.000485481326689832
 3,42.420369,E,161.832113866385,0.6447685546875,0.627315673828125,0.0174528808593749,0.0322026782546865,0.00167771315523067
