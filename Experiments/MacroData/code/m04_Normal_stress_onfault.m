@@ -39,6 +39,7 @@ load("../data/DecimatedData_raw_paper.mat", "D");
 
 %% Plot normal stress
 % Coordinate of strain gauges
+% No correction with initial rock specimen location in this plot for simplicity.
 SG3_x = [170:240:4000, 230:240:4000];
 SG2_x = [290:240:4000, 110:240:3900];
 
