@@ -3,6 +3,10 @@
 ## MacroData
 Process the macro data to find the timing of main shock, to plot the macroscopic shear and normal stress.
 
+> **NOTE:** The macroscopic normal pressure, `NPmacro`, is the output of the oil pressure. We convert it to normal stress by multiplying by 2/3, accounting for the contact area of the flat jacks, which is smaller than the top surface of the rock specimen. To compute the macroscopic friction, use:
+```matlab
+FCM = SSmacro ./ ((2/3)*mean(NPmacro, 2));
+```
 ## DetectEvent
 Find the main stick-slip events and gouge events. We visually pick the gouge events by hands, applying the high-pass filter to improve the detectability of the small events embedded by the noise. See the details in the [readme of the directory](DetectEvent).
 
