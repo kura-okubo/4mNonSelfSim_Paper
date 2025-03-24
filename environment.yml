@@ -1,0 +1,27 @@
+name: 4mNonSelfSim
+channels:
+  - conda-forge
+dependencies:
+  - obspy
+  - pandas
+  - seaborn
+  - scipy
+  - numpy
+  - jupyterlab
+  - tqdm
+  - python=3.12
+  - parse
+  - matplotlib
+  - xarray
+  - netcdf4
+  - pyvista
+  - trame
+  - trame-vtk
+  - trame-vuetify
+  - mpmath
+  - mpl-interactions
+  - ipympl
+  - jupyter_contrib_nbextensions
+  - h5py
+  - shapely
+prefix: /opt/miniconda3/envs/4mNonSelfSim
