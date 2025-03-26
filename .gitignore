@@ -5,33 +5,158 @@ __pycache__/
 *figure_old*
 *data_old*
 *debug*
+
+bk_*
+dev_*
 *.asv
 .ipynb_checkpoints
 .DS_store
+viridis.m
+
+# Original code to import Paraview colormap
+# Please use preset colormap if you get an error
+importParaviewColormap.py 
+paracolor
 
 LaboratoryNote
 
 # Experiments
-# The macrodata is not tracked as the size is large. 
 # The raw data with high-sampling rate will be uploaded in the archive.
-Experiments/MacroData/data/MacroData_raw.mat
-Experiments/MacroData/data/SlipData_raw.mat
-Experiments/MacroData/data/DecimatedData_raw_paper.mat
-
-Experiments/MacroData/figure
-
-Experiments/DetectEvent/figure/p05*
-Experiments/DetectEvent/code/dev_plot_partial_event.m
-
 Experiments/GougePatch/Gouge_ParticleSize/figure
-
 Experiments/GougePatch/GP_topography_scan/data/*.dat
 Experiments/GougePatch/GP_topography_scan/data/*.hdr
 Experiments/GougePatch/GP_topography_scan/data/*.mat
-
 Experiments/GougePatch/GP_topography_scan/figure/*
 
+Experiments/MacroData/*.hed
+Experiments/MacroData/figure
+Experiments/MacroData/data/DecimatedData_raw.mat
+Experiments/MacroData/data/DecimatedData_raw.mat
+Experiments/MacroData/data/MacroData_raw.mat
+Experiments/MacroData/data/DecimatedData_raw_paper.mat
+Experiments/MacroData/data/SlipData_raw.mat
 
+Experiments/DetectEvent/code/dev_plot_partial_event.m
+Experiments/DetectEvent/figure/p04_*_AEandStrain
+Experiments/DetectEvent/figure/p05*
+
+# PlotEvent
+PlotEvent/data/eventdata_master
+PlotEvent/figure/plot_eventexample*
+PlotEvent/figure/plot_cumulative*.pdf
+
+
+# Calibration
+# AEsensor_Calibration_ARX is maintained in the individual repository
+Calibration/AEsensor_Calibration/AEsensor_Calibration_ARX
+Calibration/AEsensor_Calibration/AEsensor_Calibration_DataConversion/figure/linear_all*
+Calibration/AEsensor_Calibration/Evaluation_PAZmodel/figure/*.eps
+Calibration/AEsensor_Calibration/Evaluation_PAZmodel/figure/*.pdf
+Calibration/AEsensor_Calibration/Evaluation_PAZmodel/figure/*.ai
+Calibration/AEsensor_Calibration/Evaluation_PAZmodel/figure/linear_all
+Calibration/AEsensor_Calibration/Evaluation_PAZmodel/figure/AIC/*.eps
+Calibration/AEsensor_Calibration/Evaluation_PAZmodel/figure/TraceARX
+Calibration/AEsensor_Calibration/Evaluation_PAZmodel/figure/validation
+
+Calibration/SensorCoupling_BallDrop/data/DATA_RAW
+Calibration/SensorCoupling_BallDrop/data/DATA_computeCF
+Calibration/SensorCoupling_BallDrop/data/DATA_greencomparison
+Calibration/SensorCoupling_BallDrop/figure/**/*.ai
+Calibration/SensorCoupling_BallDrop/figure/**/*.eps
+Calibration/SensorCoupling_BallDrop/figure/**/*.eps
+Calibration/SensorCoupling_BallDrop/code/**/*.ai
+Calibration/SensorCoupling_BallDrop/code/04_numericalmodeling_waveform/4m_sidecoord_v01_Qp200_Qs80_v2/out
+Calibration/SensorCoupling_BallDrop/code/04_numericalmodeling_waveform/4m_sidecoord_v01_Qp200_Qs80_v2/4m_openswpc*
+
+# Calibration/Attenuation/
+Calibration/Attenuation/code/04_numericalmodeling_waveform/4m_sidecoord_v01_Qp10000_Qs10000_v2_airQ10/out
+Calibration/Attenuation/code/04_numericalmodeling_waveform/4m_sidecoord_v01_Qp10000_Qs10000_v2_airQ10/4m_*
+Calibration/Attenuation/data/DATA_greencomparison
+Calibration/Attenuation/figure/*.ai
+Calibration/Attenuation/figure/*.eps
+Calibration/Attenuation/figure/**/*.ai
+Calibration/Attenuation/figure/**/*.pdf
+Calibration/Attenuation/figure/**/*.eps
+
+# SourceInvFit
+SourceInvFit/code/*.txt
+SourceInvFit/code/*.ai
+SourceInvFit/code/05_numericalsimulation/case_gougepatch_fb03-087_cluster_cp6200_cs3600_v7_mergedcatalog/out
+SourceInvFit/code/05_numericalsimulation/case_gougepatch_fb03-087_cluster_cp6200_cs3600_v7_mergedcatalog/4m_*
+
+SourceInvFit/data/AElocation/relocation_rep
+SourceInvFit/data/AElocation/*_master
+SourceInvFit/data/06_2_assemble_gf_model4
+SourceInvFit/data/07_DATA_MTinversion
+
+SourceInvFit/data/AElocation/arrivalpick/*/*.png
+SourceInvFit/data/AElocation/arrivalpick_evallocerror/*/*.png
+SourceInvFit/data/04_2_AE_obs_isocoord_forFig2
+SourceInvFit/data/04_AE_obs_isocoord
+SourceInvFit/data/datacsv/*forFig2.csv
+
+SourceInvFit/figure/*.png
+SourceInvFit/figure/AElocation
+SourceInvFit/figure/isocoord*
+SourceInvFit/figure/07_MTinversion
+SourceInvFit/figure/08_summary_VR/*.pdf
+SourceInvFit/figure/plot_summary_traces/*.pdf
+SourceInvFit/figure/plot_summary_traces/*.eps
+SourceInvFit/figure/plot_summary_traces/*reflection*
+SourceInvFit/figure/09_repeatedevents
+# SourceInvFit/figure/plot_summary_traces/*masterplot*
+
+# Compute scaling
+ComputeScaling/.R*
+ComputeScaling/data/03_computePdisp/*.hdf5
+ComputeScaling/figure/01_plot_gougeevents/*.pdf
+ComputeScaling/figure/01_plot_gougeevents/*.eps
+ComputeScaling/figure/**/*.pdf
+ComputeScaling/figure/**/*.eps
+# skip main figure
+ComputeScaling/figure/07_loglinearfit/STF_M0TRscaling*.png 
+
+# GougePatchPhoto is skipped
+Experiments/GougePatch/GougePatchPhoto
+
+Experiments/Gouge_ParticleSize/*.pdf
+Experiments/GougePatch/GP_topography_scan/data/GPTOPO-02_001.dat
+Experiments/GougePatch/GP_topography_scan/code/license.txt
+# We modified vecrast.m for the GP topography plot.
+# Theo Michelis (2025). vecrast (https://www.mathworks.com/matlabcentral/fileexchange/154667-vecrast), MATLAB Central File Exchange. Retrieved March 18, 2025.
+# Copyright (c) 2023, Theodoros Michelis
+# All rights reserved.
+Experiments/GougePatch/GP_topography_scan/code/vecrast_topo.m
+Experiments/GougePatch/GP_topography_scan/photo
+
+Experiments/GougePatch/GP_prescale_pressure/photo
+Experiments/GougePatch/GP_prescale_pressure/docs
+Experiments/GougePatch/*.ai
+Experiments/GougePatch/*.eps
+
+Experiments/GougePatch/GP_prescale_pressure/doc
+Experiments/GougePatch/GP_prescale_pressure/figure/*.psd
+Experiments/GougePatch/GP_prescale_pressure/figure/*.eps
+Experiments/GougePatch/GP_prescale_pressure/code/vecrast*
+# exclude auxiliary code 
+Experiments/GougePatch/GP_prescale_pressure/code/plot_loadinghistory*
+Experiments/GougePatch/GP_prescale_pressure/code/TEAC*
+Experiments/GougePatch/GP_prescale_pressure/data/GPPS_loaddata
+
+# GougeEventStats
+GougeEventStats/Mainshocktiming/figure
+
+GougeEventStats/M0_LocalSlip_and_SlipVel/data/p01_slipandslipvel
+GougeEventStats/M0_LocalSlip_and_SlipVel/figure/**/*.eps
+GougeEventStats/M0_LocalSlip_and_SlipVel/figure/*.ai
+GougeEventStats/M0_LocalSlip_and_SlipVel/figure/*.eps
+
+# Rupture Simulation
+RuptureSimulation/supporting_casestudy
+RuptureSimulation/Analyticalmodel
+
+RuptureSimulation/main_casestudy/**/**/*.ai
+RuptureSimulation/main_casestudy/postprocess_dynrup/figure
 
 # utils
 utils
@@ -41,14 +166,38 @@ utils/matlabcode_biax_v03/viridis.m
 utils/matlabcode_biax_v03/magma.m
 utils/matlabcode_biax_v03/plasma.m
 
-./Experiments/MacroData/data/DecimatedData_raw.mat
-./Experiments/MacroData/data/MacroData_raw.mat
-./Experiments/MacroData/data/DecimatedData_raw_paper.mat
-./Experiments/MacroData/data/SlipData_raw.mat
-./Experiments/DetectEvent/data_old/Macroscopic_stats_FB03_087.mat
-./Experiments/DetectEvent/data_old/p03_eventdata_FB03_087/eventdata_FB03_087_event17.mat
-./Experiments/DetectEvent/data_old/eventdata_master/eventdata_FB03_087_event17.mat
-./Experiments/DetectEvent/data_old/eventdata_master/eventdata_FB03_087_event29.mat
-./Experiments/DetectEvent/data_old/eventdata_master/eventdata_FB03_087_event14.mat
-./Experiments/DetectEvent/data_old/eventdata_master/eventdata_FB03_087_event18.mat
 
+# Other
+Others/**/*.ai
+Others/**/*.eps
+
+Others/Fig1_introduction/**/*.ai
+Others/Fig1_introduction/**/*.eps
+Others/Fig1_introduction/Fig1b_4mbiaxapparatus_schematic/figure/*.ai
+Others/Fig1_introduction/Fig1b_4mbiaxapparatus_schematic/figure/*.eps
+Others/Fig1_introduction/Fig1b_4mbiaxapparatus_schematic/figure/*.pdf
+
+Others/Fig2_plot_eventwaveform/figure/*.eps
+
+Others/EnergyBudget/*.xlsx
+# See Fracture energy dataset: https://github.com/aretu/fracture_energy
+Others/EnergyBudget/fracture_energy
+Others/fracture_energy
+# skip in github repo: only contains
+Others/EnergyBudget
+
+# GP activity
+Others/GPeventsActivity/figure/*.pdf
+
+# Supplementary all the GP events
+Others/Supp_plotallgougeevents/figure
+
+Others/SensorArray/figure
+
+Others/Synthetictest_STFestimation/figure/*.eps
+
+# Aperture effect
+Others/ApertureEffect/figure/*.eps
+
+# Spectral Ratio Analysis
+Others/SpectralRatio/figure
