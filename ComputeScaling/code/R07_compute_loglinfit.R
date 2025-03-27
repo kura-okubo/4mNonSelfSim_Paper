@@ -1,6 +1,7 @@
 rm(list=ls())
 
-setwd('/Users/kokubo/Dropbox/NIED_RESEARCH/4mBIAX_submission/4mNonSelfSim_Paper/ComputeScaling')
+# setwd('path-to/ComputeScaling')
+setwd("..")
 # imported file name
 finame <- "./data/07_loglinearfit/logfitdata_fb03-087_G3_wlv_0.30_denoisemethod_detrend.csv"
 mydata <- read.csv(finame)
