@@ -10,8 +10,8 @@ masterdir = "/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/";
 for eventid = 1:56
 % eventid = 1;
 
-Orig = load(rootdir+sprintf("p03_eventdata_FB03_087/eventdata_FB03_087_event%02d.mat", eventid)); % original data to be uploaded to the archive
-Rep = load(masterdir+sprintf("p03_eventdata_FB03_087/eventdata_FB03_087_event%02d.mat", eventid)); % reproduced data by rerunning the script
+Orig = load(rootdir+sprintf("p03_eventdata_FB03_087/eventdata_FB03_087_event%02d.mat", eventid)); % original data
+Rep = load(masterdir+sprintf("p03_eventdata_FB03_087/eventdata_FB03_087_event%02d.mat", eventid)); % reproduced master data by rerunning the script to be uploaded to the archive
 
 %%
 assert(all(Orig.SGB_x == Rep.SGB_x));
