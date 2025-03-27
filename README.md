@@ -1,6 +1,12 @@
 # Dynamics of non-self-similar earthquakes Paper
 Input files, codes and jupyter notebooks to reproduce the processings and figures associated with the non-self-similar laboratory earthquakes using 4 meter long biaxial rock friction apparatus.
 
+Documentation is available from the badge below:
+
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://kura-okubo.github.io/4mNonSelfSim_Paper/dev)
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://kura-okubo.github.io/4mNonSelfSim_Paper/stable)
+[![Documentation](https://github.com/kura-okubo/4mNonSelfSim_Paper/actions/workflows/documentation.yml/badge.svg)](https://github.com/kura-okubo/4mNonSelfSim_Paper/actions/workflows/documentation.yml)
+
 # Contents
 
 ### - [Experiments](Experiments)
