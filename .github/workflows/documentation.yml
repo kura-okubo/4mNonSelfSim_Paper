@@ -1,0 +1,34 @@
+name: Documentation
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+    tags: '*'  # Trigger on any tag
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.10'
+      - name: Install dependencies
+        run: |
+          julia --project=docs/ -e '
+            using Pkg;
+            Pkg.develop(PackageSpec(name="Documenter"));
+            Pkg.instantiate();
+            Pkg.resolve();'
+      - name: Build and deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # If authenticating with GitHub Actions token
+        run: julia --project=docs/ docs/make.jl
