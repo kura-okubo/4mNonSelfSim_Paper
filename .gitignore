@@ -109,6 +109,9 @@ SourceInvFit/figure/09_repeatedevents
 # Compute scaling
 ComputeScaling/.R*
 ComputeScaling/data/03_computePdisp/*.hdf5
+
+ComputeScaling/figure
+
 ComputeScaling/figure/01_plot_gougeevents/*.pdf
 ComputeScaling/figure/01_plot_gougeevents/*.eps
 ComputeScaling/figure/**/*.pdf
@@ -157,6 +160,7 @@ RuptureSimulation/Analyticalmodel
 
 RuptureSimulation/main_casestudy/**/**/*.ai
 RuptureSimulation/main_casestudy/postprocess_dynrup/figure
+RuptureSimulation/main_casestudy/preprocess_modelsetup/figure
 
 # utils
 utils
