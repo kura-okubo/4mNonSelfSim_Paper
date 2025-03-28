@@ -68,3 +68,5 @@ tcut    = 100
 - [aux01_paramstudy_searchbestfitparam.ipynb](./main_casestudy/postprocess_dynrup/code/aux01_paramstudy_searchbestfitparam.ipynb): Visualizes grid search results.
 - [aux03_plot_crosssection_slip.ipynb](./main_casestudy/postprocess_dynrup/code/aux03_plot_crosssection_slip.ipynb): Plots the cross-section profile of slip and shear traction.
 
+## Others
+[make_example_4mNonSelfSim](./make_example_4mNonSelfSim): Generate an input file for the minimum working example. 
