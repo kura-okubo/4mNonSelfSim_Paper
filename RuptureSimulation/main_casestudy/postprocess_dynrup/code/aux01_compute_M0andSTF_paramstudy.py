@@ -146,7 +146,7 @@ df_modelparam = pd.read_csv(finame, index_col=0)
 # datadir_root = "/Volumes/4mGouge_WorkHDD/RuptureSimulation/build_hpcv52_paramstudy_v11/simulations_main_casestudy_hpc_dev"
 # datadir_root = "/Volumes/4mGouge_WorkHDD/RuptureSimulation/build_hpcv53_paramstudy_master/simulations_main_casestudy_hpc_paramstudymaster"
 # datadir_root = "/Volumes/4mGouge_WorkHDD/RuptureSimulation/build_hpcv53_paramstudy_master/simulations_main_casestudy_hpc_paramstudymaster"
-datadir_root = "/Volumes/Okuboetal2025_masterHDD/RuptureSimulation/main_casestudy/build_hpcv61_paramstudy_master_v3/simulations_main_casestudy_hpc_paramsearch"
+datadir_root = "/Volumes/Okuboetal2025_masterHDD/RuptureSimulation/main_casestudy/build_hpcv63_paramstudy_master_v4/simulations_main_casestudy_hpc_paramsearch"
 
 casestr
 
