@@ -43,28 +43,28 @@ tcut    = 100
 
 ### Preprocessing
 
-[**preprocess_modelsetup**](./preprocess_modelsetup)
+[**preprocess_modelsetup**](./main_casestudy/preprocess_modelsetup)
 
-- [01_gougepatch_dynrup_main_casestudy.ipynb](code/01_gougepatch_dynrup_main_casestudy.ipynb): Generates the input file for local test simulations.
-- [02_gougepatch_dynrup_main_casestudy_hpc_paramgridsearch.py](./code/02_gougepatch_dynrup_main_casestudy_hpc_paramgridsearch.py): Generates input files for grid search of initial stress levels.
-- [03_gougepatch_dynrup_main_casestudy_hpc_master.ipynb](./code/03_gougepatch_dynrup_main_casestudy_hpc_master.ipynb): Generates input files for the best parameter set, including cases with and without self-healing friction. Also includes a few-time-step model to visualize initial parameters.
-- [04_generate_latex_initparam_table.ipynb](./code/04_generate_latex_initparam_table.ipynb): Outputs a LaTeX table of the best-fit dynamic rupture model parameters.
+- [01_gougepatch_dynrup_main_casestudy.ipynb](./main_casestudy/preprocess_modelsetup/code/01_gougepatch_dynrup_main_casestudy.ipynb): Generates the input file for local test simulations.
+- [02_gougepatch_dynrup_main_casestudy_hpc_paramgridsearch.py](./main_casestudy/preprocess_modelsetup/code/02_gougepatch_dynrup_main_casestudy_hpc_paramgridsearch.py): Generates input files for grid search of initial stress levels.
+- [03_gougepatch_dynrup_main_casestudy_hpc_master.ipynb](./main_casestudy/preprocess_modelsetup/code/03_gougepatch_dynrup_main_casestudy_hpc_master.ipynb): Generates input files for the best parameter set, including cases with and without self-healing friction. Also includes a few-time-step model to visualize initial parameters.
+- [04_generate_latex_initparam_table.ipynb](./main_casestudy/preprocess_modelsetup/code/04_generate_latex_initparam_table.ipynb): Outputs a LaTeX table of the best-fit dynamic rupture model parameters.
 
 > The input files used for the main analysis are located in [**4mNonSelfSim_UGUCA**](https://github.com/kura-okubo/4mNonSelfSim_UGUCA).
 
 ### Postprocessing
 
-[**postprocess_dynrup**](./postprocess_dynrup)
+[**postprocess_dynrup**](./main_casestudy/postprocess_dynrup)
 
-- [01_compute_M0andSTF.ipynb](./code/01_compute_M0andSTF.ipynb): Initial check of the simulation results. Computes the STF time history, evaluates source parameters by fitting a cosine STF, and exports the data.
-- [02_plot_initialcondition.ipynb](./code/02_plot_initialcondition.ipynb): Plots the initial stress state based on simulation output to verify correct implementation.
-- [03_plot_snapshots_mastercase.ipynb](./code/03_plot_snapshots_mastercase.ipynb): Plots snapshots of the dynamic rupture simulation, including traction history at a point. Requires both self-healing and non-self-healing cases for comparison.
-- [04_plot_sheartractionhistory.ipynb](./code/04_plot_sheartractionhistory.ipynb): Plots the shear traction history.
-- [05_plot_masterSTF.ipynb](./code/05_plot_masterSTF.ipynb): Plots the source time function of the dynamic rupture model.
+- [01_compute_M0andSTF.ipynb](./main_casestudy/postprocess_dynrup/01_compute_M0andSTF.ipynb): Initial check of the simulation results. Computes the STF time history, evaluates source parameters by fitting a cosine STF, and exports the data.
+- [02_plot_initialcondition.ipynb](./main_casestudy/postprocess_dynrup/02_plot_initialcondition.ipynb): Plots the initial stress state based on simulation output to verify correct implementation.
+- [03_plot_snapshots_mastercase.ipynb](./main_casestudy/postprocess_dynrup/03_plot_snapshots_mastercase.ipynb): Plots snapshots of the dynamic rupture simulation, including traction history at a point. Requires both self-healing and non-self-healing cases for comparison.
+- [04_plot_sheartractionhistory.ipynb](./main_casestudy/postprocess_dynrup/04_plot_sheartractionhistory.ipynb): Plots the shear traction history.
+- [05_plot_masterSTF.ipynb](./main_casestudy/postprocess_dynrup/05_plot_masterSTF.ipynb): Plots the source time function of the dynamic rupture model.
 
 ### Additional Auxiliary Scripts
 
-- [aux01_compute_M0andSTF_paramstudy.py](aux01_compute_M0andSTF_paramstudy.py): Processes simulation results to evaluate source parameters, aiding in identifying the best-fit model.
-- [aux01_paramstudy_searchbestfitparam.ipynb](./code/aux01_paramstudy_searchbestfitparam.ipynb): Visualizes grid search results.
-- [aux03_plot_crosssection_slip.ipynb](./code/aux03_plot_crosssection_slip.ipynb): Plots the cross-section profile of slip and shear traction.
+- [aux01_compute_M0andSTF_paramstudy.py](./main_casestudy/postprocess_dynrup/code/aux01_compute_M0andSTF_paramstudy.py): Processes simulation results to evaluate source parameters, aiding in identifying the best-fit model.
+- [aux01_paramstudy_searchbestfitparam.ipynb](./main_casestudy/postprocess_dynrup/code/aux01_paramstudy_searchbestfitparam.ipynb): Visualizes grid search results.
+- [aux03_plot_crosssection_slip.ipynb](./main_casestudy/postprocess_dynrup/code/aux03_plot_crosssection_slip.ipynb): Plots the cross-section profile of slip and shear traction.
 
