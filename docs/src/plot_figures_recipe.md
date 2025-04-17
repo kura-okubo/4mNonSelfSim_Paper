@@ -10,7 +10,7 @@
   Run [`01_nonselfsimilar_schematic.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/Fig1_introduction/Fig1a_nonselfsimilar_schematic/01_nonselfsimilar_schematic.ipynb)
 
 - **Figures 1b–c.** Diagram of the four-meter biaxial friction apparatus.  
-  Run [`01_Figs1bc_4mbiaxapparatus_schematic.ipynb`](/Users/kokubo/Dropbox/NIED_RESEARCH/4mBIAX_submission/4mNonSelfSim_Paper_v2/Others/Fig1_introduction/Fig1b_4mbiaxapparatus_schematic/code/01_Figs1bc_4mbiaxapparatus_schematic.ipynb)
+  Run [`01_Figs1bc_4mbiaxapparatus_schematic.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/Fig1_introduction/Fig1b_4mbiaxapparatus_schematic/code/01_Figs1bc_4mbiaxapparatus_schematic.ipynb)
 
 - **Figures 1d–f.** AE waveforms of GP events with zoomed-in windows.  
   Run [`01_Introduction_plot_gougeevents.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/ComputeScaling/code/01_Introduction_plot_gougeevents.ipynb)
