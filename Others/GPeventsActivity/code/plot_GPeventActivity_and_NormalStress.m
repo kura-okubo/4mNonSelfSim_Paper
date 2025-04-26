@@ -131,7 +131,7 @@ mc_gougepatch = sns_colorpalette(1, 9);
 % subplot(2, 1, 2); hold on; box on; grid on;
 nexttile; box on; hold on;
 
-grid on;
+% grid on;
 % b = bar(gouge_loc, event_c, "stacked", "EdgeColor", "k", "LineWidth",1);
 % Plot only ordinary events
 b = bar(gouge_loc, event_c, "stacked", "EdgeColor", "k", "LineWidth",0.75);
@@ -160,7 +160,7 @@ legend([b(1),  b(2), p], ["Foreshock", "Aftershock", "GP Location"], "Location",
 xlabel("Easting [m]");
 ylabel("Event count");
 
-grid on;
+% grid on;
 
 %---------------------%
 % plot normal stress
@@ -171,7 +171,7 @@ ylimit = [0, 5];
 sn_apply = 2; 
 bar_width = 0.5;
 
-hold on; box on; grid on;
+hold on; box on; %grid on;
 
 % nt = 97658;
 Tplot = 150.0; % [s]
