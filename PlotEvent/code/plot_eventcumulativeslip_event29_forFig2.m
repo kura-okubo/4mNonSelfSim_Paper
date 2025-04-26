@@ -27,8 +27,13 @@ event_datdir="../data/eventdata_master";
 
 load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
 
-% %% Load gouge event timing
-M = readtable("../../Others/LocalSlipVelocity/data/slipvelocity_and_M0_master.csv", 'VariableNamingRule', 'preserve');
+% %% Load GP event timing
+patch_id="G3";
+Q_quart = "Q50";
+fi_gougeevents = sprintf("../../GougeEventCatalog/data/gougeeventcatalog__fb03-%03d__%s__%s.csv", expr_id, patch_id, Q_quart);
+M = readtable(fi_gougeevents);
+
+% M = readtable("../../Others/LocalSlipVelocity/data/slipvelocity_and_M0_master.csv", 'VariableNamingRule', 'preserve');
 
 df_event=M(M.stickslip_id==event_id, :);
 
@@ -143,8 +148,8 @@ text(3.88, 36.5, "ms", "FontSize", 9.);
 mc_gougeevent = '#FFD700'; %'#D55E00'; % foreshock_color
 
 %1. relocated onset just for debug
-gougeevent_ot = df_event.origin_time - Tstart; % Tstart is already shifted with the Tshift
-gougeevent_x =  df_event.X; %for event 72 %1.75;
+gougeevent_ot = df_event.event_onset_time - Tstart; % Tstart is already shifted with the Tshift
+gougeevent_x =  df_event.location; %for event 72 %1.75;
 gougeevent_kt = find(tmat_event >= gougeevent_ot, 1); % use the t of the decimated data
 gougeevent_accumulatedslip = Dmat_event_span(gougeevent_kt, :);
 gougeevent_accumulatedslip_atpatch = interp1(Disp_x/1e3, gougeevent_accumulatedslip*1e3, gougeevent_x);
@@ -215,8 +220,9 @@ if ~exist(figdir) mkdir(figdir); end
 figname = sprintf(figdir+"/plot_cumulativeslip_master_fb03-%03d_event%02d_forFig2.pdf", expr_id, event_id);
 
 if ifSavefig
-    print(fig, figname, '-dpdf', '-loose', '-vector');
-    % exportgraphics(fig, figname);
+    print(fig, figname, '-dpdf'); % updated 2025.3.31
+    % print(fig, figname, '-dpdf', '-vector');
+    % exportgraphics(fig, figname, 'ContentType','vector', 'Resolution', 300);
 end
 
 

@@ -1,6 +1,7 @@
 % plot event data: stick-slip event 29
 % render image and vector file for master figure
 % update: 2025.02.12 merge vector and raster figure
+% update: 2025.04.25 updated ylabels.
 
 clear all; close all;
 
@@ -376,7 +377,7 @@ hax.Children = circshift(hax.Children, -2);
 cb = colorbar(hax);
 cb.Limits=[-1, 1];
 cb.Ticks = [-1, 0, 1];
-cb.Label.String = "Normalized Shear stress change";
+cb.Label.String = "Normalized shear stress change";
 pos = cb.Position;
 pos(1) = 0.915;
 pos(3) = 0.015;
@@ -503,7 +504,7 @@ subplot(12, 1, 11:12); hold on; box on;
 
 plot(tmat_SS*1e3, SS_HFS_filtered, "k-", "LineWidth", 1);
 xlabel("Time [ms]");
-ylabel({"Macroscopic"; "Shear stress [MPa]"});
+ylabel({"Macroscopic"; "shear stress [MPa]"});
 xlim(xlimit);
 ylim([0.638, 0.662]);
 yticks([0.64, 0.65, 0.66]);
