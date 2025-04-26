@@ -5,6 +5,7 @@ __pycache__/
 *figure_old*
 *data_old*
 *debug*
+*diffcheck*
 
 bk_*
 dev_*
@@ -189,6 +190,9 @@ Others/EnergyBudget/fracture_energy
 Others/fracture_energy
 # skip in github repo: only contains
 Others/EnergyBudget
+
+# skip process flow for STF fitting
+Others/Pwave_STF_ProcessFlow
 
 # GP activity
 Others/GPeventsActivity/figure/*.pdf
