@@ -7,9 +7,9 @@ This repository contains the notebooks for processing the experiments dataset, i
 
 To reduce the repository size, we maintain the software used in this study across separate GitHub repositories as follows:
 
-- [4mNonSelfSim_OpenSWPC](): modeling the waveform propagation through the four-meter-length rock specimens, by extending the functions of [OpenSWPC](https://openswpc.github.io) ([Maeda et al., 2017](https://earth-planets-space.springeropen.com/articles/10.1186/s40623-017-0687-2)).
+- [4mNonSelfSim_OpenSWPC](https://github.com/kura-okubo/4mNonSelfSim_OpenSWPC): modeling the waveform propagation through the four-meter-length rock specimens, by extending the functions of [OpenSWPC](https://openswpc.github.io) ([Maeda et al., 2017](https://earth-planets-space.springeropen.com/articles/10.1186/s40623-017-0687-2)).
 
-- [4mNonSelfSim_UGUCA](): performing dynamic rupture simulation of the non-self-similar laboratory earthquakes, adding the interface law to the SBIEM-based software [UGUCA](https://uguca.gitlab.io/uguca/) ([Kammer et al., 2019](https://www.sciencedirect.com/science/article/pii/S2352711021000959)).
+- [4mNonSelfSim_UGUCA](https://github.com/kura-okubo/4mNonSelfSim_UGUCA): performing dynamic rupture simulation of the non-self-similar laboratory earthquakes, adding the interface law to the SBIEM-based software [UGUCA](https://uguca.gitlab.io/uguca/) ([Kammer et al., 2019](https://www.sciencedirect.com/science/article/pii/S2352711021000959)).
 
 
 ## Dataset
