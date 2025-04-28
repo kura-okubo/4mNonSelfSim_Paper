@@ -13,7 +13,7 @@ To reduce the repository size, we maintain the software used in this study acros
 
 
 ## Dataset
-The original dataset of stick-slip experiments is uploaded in Zenodo (https://doi.org/10.5281/zenodo.15233279), which includes high-sampling AE waveforms, strain, slip, and macroscopic measurement. We saved the data in MATLAB v7.3 format, extracting a 200 ms time window for each stick-slip main event from the continuous recording.
+The original dataset of stick-slip experiments is uploaded in Zenodo (https://doi.org/10.5281/zenodo.15233278), which includes high-sampling AE waveforms, strain, slip, and macroscopic measurement. We saved the data in MATLAB v7.3 format, extracting a 200 ms time window for each stick-slip main event from the continuous recording.
 
 ### Contents 
 | Variable name | Description | Unit | Channels |
