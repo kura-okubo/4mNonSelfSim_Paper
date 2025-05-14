@@ -5,7 +5,7 @@ This repository contains input files, source code, and Jupyter notebooks for rep
 **Documentation**  
 Access the documentation via the badges below:
 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://kura-okubo.github.io/4mNonSelfSim_Paper/stable) [![Documentation](https://github.com/kura-okubo/4mNonSelfSim_Paper/actions/workflows/documentation.yml/badge.svg)](https://github.com/kura-okubo/4mNonSelfSim_Paper/actions/workflows/documentation.yml) [![DOI](https://zenodo.org/badge/880208770.svg)](https://doi.org/10.5281/zenodo.15288780)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://kura-okubo.github.io/4mNonSelfSim_Paper/dev) [![Documentation](https://github.com/kura-okubo/4mNonSelfSim_Paper/actions/workflows/documentation.yml/badge.svg)](https://github.com/kura-okubo/4mNonSelfSim_Paper/actions/workflows/documentation.yml) [![DOI](https://zenodo.org/badge/880208770.svg)](https://doi.org/10.5281/zenodo.15288780)
 
 
 ---
