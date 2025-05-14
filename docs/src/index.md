@@ -32,7 +32,7 @@ The original dataset of stick-slip experiments is uploaded in Zenodo ([https://d
 | `SGT_x` | Sensor coordinate of biaxial strain gouge along fault | mm | |
 | `SSmacro` | Macroscopic shear stress measured at shear jack | MPa | | 
 | `Snmat` | Normal stress measured by strain gouge^2 | MPa | 32 |
-| `Spmat` | Horizontal stress ($\\sigma_{xx}$) measured by strain gouge^2 | MPa | 32 |
+| `Spmat` | Horizontal stress ($σ_{xx}$) measured by strain gouge^2 | MPa | 32 |
 | `Taumat2` | Shear stress change measured by biaxial strain gouge^2 | MPa | 32 |
 | `Taumat3` | Shear stress change measured by triaxial strain gouge^2 | MPa | 32 |
 | `Tstart` | Absolute start time of this event data  | sec | |
