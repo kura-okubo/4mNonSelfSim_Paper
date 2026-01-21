@@ -56,8 +56,8 @@ ylabel("Macroscopic τ/σ");
 
 % Plot annotation for the detailed plots
 if expr_id==87
-    text(eventtime(14), 0.4105, " (i)", "FontWeight","bold");
-    text(eventtime(17), 0.412, " (ii)", "FontWeight","bold");
+    % text(eventtime(14), 0.4105, " (i)", "FontWeight","bold");
+    % text(eventtime(17), 0.412, " (ii)", "FontWeight","bold");
     % text(eventtime(18), 0.411, " (ii)", "FontWeight","bold");
 end
 
@@ -127,9 +127,21 @@ ax = gca();
 plot(eventtime, "k:", "LineWidth", xline_width);
 
 plotind = (xlimit(1) < rupture_type(:, 1)) & (rupture_type(:, 1) <  xlimit(2));
+idx_list = find(plotind);
 
-ht = text(ax, rupture_type(plotind, 1), rupture_type(plotind, 2), rupture_type_char(plotind, 1),...
-    "FontSize", 18, "FontWeight","bold", "HorizontalAlignment", "center", "BackgroundColor", "w");
+for ii = 1:numel(idx_list)
+    idx = idx_list(ii);
+    if rupture_type(idx, 2) == 1 || rupture_type(idx, 2) == 3
+        ht = text(ax, rupture_type(idx, 1), rupture_type(idx, 2), rupture_type_char(idx, 1),...
+            "FontSize", 18, "FontWeight","bold", "HorizontalAlignment", "center", "BackgroundColor", "w");
+    else
+        ht = text(ax, rupture_type(idx, 1), 1, rupture_type_char(idx, 1),...
+            "FontSize", 18, "FontWeight","bold", "HorizontalAlignment", "center", "BackgroundColor", "w");
+        ht2 = text(ax, rupture_type(idx, 1), 3, rupture_type_char(idx, 1),...
+            "FontSize", 18, "FontWeight","bold", "HorizontalAlignment", "center", "BackgroundColor", "w");
+    end
+end
+
 xlim(xlimit);
 ylim([0.5, 3.5]);
 yticks([1, 2, 3]);
@@ -268,11 +280,11 @@ for k = 1:5
 end
 
 %% annotation
-annotation('textbox', [0.016, 0.95, 0, 0], 'string', '(a)', "FontWeight","bold");
-annotation('textbox', [0.016, 0.77, 0, 0], 'string', '(b)', "FontWeight","bold");
-annotation('textbox', [0.016, 0.60, 0, 0], 'string', '(c)', "FontWeight","bold");
-annotation('textbox', [0.016, 0.43, 0, 0], 'string', '(d)', "FontWeight","bold");
-annotation('textbox', [0.016, 0.26, 0, 0], 'string', '(e)', "FontWeight","bold");
+annotation('textbox', [0.016, 0.95, 0, 0], 'string', 'a', "FontWeight","bold", "FontSize", 24);
+annotation('textbox', [0.016, 0.77, 0, 0], 'string', 'b', "FontWeight","bold", "FontSize", 24);
+annotation('textbox', [0.016, 0.60, 0, 0], 'string', 'c', "FontWeight","bold", "FontSize", 24);
+annotation('textbox', [0.016, 0.43, 0, 0], 'string', 'd', "FontWeight","bold", "FontSize", 24);
+annotation('textbox', [0.016, 0.26, 0, 0], 'string', 'e', "FontWeight","bold", "FontSize", 24);
 
 %%
 figname = sprintf("../figure/p05_overview_FB03-%03d.png", expr_id);
