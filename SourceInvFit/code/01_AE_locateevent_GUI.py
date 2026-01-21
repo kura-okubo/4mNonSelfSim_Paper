@@ -74,7 +74,7 @@ Nsensor = len(channel_loc)
 # Read the csv pick datasheet
 fi_catalog="../../Experiments/DetectEvent/data/p06_visual_pick_gougeevents_merged.csv"
 columns = ["expr_id", "event_id", "event_loc", "picktime", "event_type", "rupturetype", "gougeevent_id", "doublecheck", "old_gougeevent_id"]
-df_catalog = pd.read_csv(fi_catalog, skiprows=5, names=columns)
+df_catalog = pd.read_csv(fi_catalog, skiprows=5, names=columns, index_col=False) # update 2025.12.3 index_col=False 
 df_expr = df_catalog[(df_catalog["expr_id"]==f"fb03-{expr_id:03d}")]
 df_expr.head()
 
@@ -100,7 +100,9 @@ for i, df_evt in df_expr.iterrows():
     df_evt
 
     # Load AE data from event mat data
-    data_rootdir = f"/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_{expr_id:03d}/"
+    # data_rootdir = f"/Volumes/4mGouge_WorkHDD/FB03data/4mBIAX_paper_tmp/p03_eventdata_FB03_{expr_id:03d}/"
+    data_rootdir = f"/Volumes/Okuboetal2025_masterHDD/4mBIAX_eventdata_master/p03_eventdata_FB03_{expr_id:03d}/"
+    
     fname = f"eventdata_FB03_{expr_id:03d}_event{df_evt['event_id']:02d}"
 
     D = sio.loadmat(data_rootdir+fname)
