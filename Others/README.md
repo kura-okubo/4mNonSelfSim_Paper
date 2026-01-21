@@ -43,3 +43,6 @@ Plot event diagram of AE waveforms and shear stress change.
 Perform synthetic test to retrieve the source parameters with the attenuation correction.
 ## [compute_reflection](compute_reflection)
 Method to compute the pS and sP reflected waves in the rock specimen. 
+
+## [Revision_Analysis](## [Revision_Analysis](compute_reflection))
+Analyses conducted during the revision process.
