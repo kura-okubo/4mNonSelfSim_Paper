@@ -30,11 +30,14 @@
 - **Figure 3c.** Moment-duration scaling plot.  
   Run [`07_loglinearfit_STF.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/ComputeScaling/code/07_loglinearfit_STF.ipynb)
 
-- **Figures 4a-b.** Initial stress distribution in the rupture simulation.  
-  Run [`02_plot_initialcondition.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/02_plot_initialcondition.ipynb)
+- **Figure 3d.** Spectral ratio of the GP events.  
+  Run [`02_stacked_spectralratioanalysis_nonselfsimilar.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/SpectralRatio/code/02_stacked_spectralratioanalysis_nonselfsimilar.ipynb)
 
-- **Figure 4c.** Shear traction history during rupture.  
+- **Figure 4a.** Shear traction history during rupture.  
   Run [`04_plot_sheartractionhistory.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/04_plot_sheartractionhistory.ipynb)
+
+- **Figures 4b-c.** Initial stress distribution in the rupture simulation.  
+  Run [`02_plot_initialcondition.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/02_plot_initialcondition.ipynb)
 
 - **Figures 4d–f.** Snapshots of rupture front propagation.  
   Run [`03_plot_snapshots_mastercase.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/03_plot_snapshots_mastercase.ipynb)
@@ -61,61 +64,73 @@
 - **Figure S5.** Shear stress and AE waveform of a GP aftershock event.  
   Run [`plot_example_master_fb03_087_event35_FigSupp.m`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/PlotEvent/code/plot_example_master_fb03_087_event35_FigSupp.m)
 
-- **Figure S6.** Shear stress and AE waveform of another GP aftershock event.  
-  Run [`plot_example_master_fb03_087_event35_FigSupp.m`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/PlotEvent/code/plot_example_master_fb03_087_event35_FigSupp.m)
-
 - **Figures S6a–b.** Schematic diagrams for estimating attenuation factors.  
   Run [`08_compute_attenuation_factor.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/Attenuation/code/08_compute_attenuation_factor.ipynb)
 
-- **Figure S6c.** Quantitative estimation of attenuation (1/Q).  
+- **Figure S6c.** Quantitative estimation of attenuation (1/Qp).  
   Run [`09_compute_Qinv.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/Attenuation/code/09_compute_Qinv.ipynb)
 
 - **Figure S7.** Spectral ratio analysis of GP events.  
   Run [`02_stacked_spectralratioanalysis_nonselfsimilar.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/SpectralRatio/code/02_stacked_spectralratioanalysis_nonselfsimilar.ipynb)
 
-- **Figure S8.** Cumulative local slip distributions across the fault.  
+- **Figure S8.** Waveforms of the GP events on P5.  
+  Run [`01_Introduction_plot_gougeevents_revision_P5.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/Revision_Analysis/GPeventAnalysis_P5/plot_repeatingevents/code/01_Introduction_plot_gougeevents_revision_P5.ipynb)
+
+- **Figure S9.** Cumulative local slip distributions across the fault.  
   Run [`05_localslip_slipvel_masterplot.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/GougeEventStats/M0_LocalSlip_and_SlipVel/code/05_localslip_slipvel_masterplot.ipynb)
 
-- **Figure S9.** STF of dynamic rupture simulation without self-healing.  
+- **Figure S10.** Comparison between local and macroscopic measurements and seismic moment 
+  See notebooks in [`GougeEventStats`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/GougeEventStats) and [`NormalStressonGP`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Revision_Analysis/NormalStressonGP) 
+
+- **Figure S11.** STF of dynamic rupture simulation without self-healing.  
   Run [`05_plot_masterSTF.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/05_plot_masterSTF.ipynb)
 
-- **Figure S10.** Statistical summary of gouge patch activity.  
+- **Figure S12.** Comparison of self-healing region for GP events.
+  Run [`aux_03_Revision_plot_healing_comparison.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/StressDropDependentHealing/code/aux_03_Revision_plot_healing_comparison.ipynb)
+
+- **Figure S13.** Schematic illustration of scaling.  
+  *No script required.*
+
+- **Figure S14.**  summary of physical state for gouge patch.  
   See [`GougePatch`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Experiments/GougePatch)
 
-- **Figure S11.** Schematic of AE sensor calibration setup.  
+- **Figure S15.** Schematic of AE sensor calibration setup.  
   *No script required.*
 
-- **Figure S12.** Flowchart of AE sensor calibration procedure.  
+- **Figure S16.** Flowchart of AE sensor calibration procedure.  
   *No script required.*
 
-- **Figure S13.** AIC-based model selection in AE sensor calibration.  
+- **Figure S17.** AIC-based model selection in AE sensor calibration.  
   Run [`plot_modelAIC.m`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/AEsensor_Calibration/Evaluation_PAZmodel/code/plot_modelAIC.m)
 
-- **Figure S14a.** Bode plot of transfer function.  
+- **Figure S18a.** Bode plot of transfer function.  
   See [`AEsensor_Calibration_ARX`](https://github.com/kura-okubo/AEsensor_Calibration_ARX)
 
-- **Figure S14b.** Comparison of responses before and after correction.  
+- **Figure S18b.** Comparison of responses before and after correction.  
   Run [`validate_metalblock_PAZmodel.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/AEsensor_Calibration/Evaluation_PAZmodel/code/validate_metalblock_PAZmodel.ipynb)
 
-- **Figure S15.** Locations of ball-drop calibration tests.  
+- **Figure S19.** Locations of ball-drop calibration tests.  
   Run [`02_plot_and_makelocationtable_v01.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/SensorCoupling_BallDrop/code/02_plot_and_makelocationtable_v01.ipynb)
 
-- **Figure S16.** Schematic of waveform modeling and calibration strategy.  
+- **Figure S20.** Schematic of waveform modeling and calibration strategy.  
   See [`4mNonSelfSim_OpenSWPC – cross-verification`](https://github.com/kura-okubo/4mNonSelfSim_OpenSWPC/tree/develop/cross-verification)
 
-- **Figure S17.** Results of calibration for waveform propagation modeling.  
+- **Figure S21.** Results of calibration for waveform propagation modeling.  
   See [`4mNonSelfSim_OpenSWPC – cross-verification`](https://github.com/kura-okubo/4mNonSelfSim_OpenSWPC/tree/develop/cross-verification)
 
-- **Figure S18.** Waveform fitting for sensor coupling calibration.  
+- **Figure S22.** Waveform fitting for sensor coupling calibration.  
   Run [`08_plot_surfaceeffect_result_Case2.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/SensorCoupling_BallDrop/code/08_plot_surfaceeffect_result_Case2.ipynb)
 
-- **Figure S19.** Schematic illustration of the aperture effect.  
+- **Figure S23.** Schematic illustration of the aperture effect.  
   *No script required.*
 
-- **Figure S20.** Sensor coupling calibration results.  
+- **Figure S24.** Sensor coupling calibration results.  
   Run [`08_plot_surfaceeffect_result_Case2.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/SensorCoupling_BallDrop/code/08_plot_surfaceeffect_result_Case2.ipynb)
 
-- **Figure S21.** STF fitting results for all GP events.  
+- **Figure S25.** STF fitting results for all GP events.  
   Run [`06_plotfittingSTF.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/ComputeScaling/code/06_plotfittingSTF.ipynb)
 
 ---
+## Figures in Rebuttal letter
+- Notebooks used to reproduce figures during the revision and rebuttal process are stored in [`Others/Revision_Analysis`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/Revision_Analysis)
+
