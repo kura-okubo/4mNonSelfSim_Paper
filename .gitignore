@@ -9,6 +9,8 @@ __pycache__/
 
 bk_*
 dev_*
+ref_*
+
 *.asv
 .ipynb_checkpoints
 .DS_store
@@ -45,7 +47,7 @@ Experiments/DetectEvent/figure/p05*
 PlotEvent/data/eventdata_master
 PlotEvent/figure/plot_eventexample*
 PlotEvent/figure/plot_cumulative*.pdf
-
+PlotEvent/figure/plot_revision_eventexample*
 
 # Calibration
 # AEsensor_Calibration_ARX is maintained in the individual repository
@@ -155,6 +157,10 @@ GougeEventStats/M0_LocalSlip_and_SlipVel/figure/**/*.eps
 GougeEventStats/M0_LocalSlip_and_SlipVel/figure/*.ai
 GougeEventStats/M0_LocalSlip_and_SlipVel/figure/*.eps
 
+GougeEventStats/M0_macro_comparisons/figure/M0vsStressDrop/*.eps
+GougeEventStats/M0_macro_comparisons/figure/M0vsThold/*.eps
+GougeEventStats/M0_macro_comparisons/figure/M0vsTotalCumulativeSlip/*.eps
+
 # Rupture Simulation
 RuptureSimulation/supporting_casestudy
 RuptureSimulation/Analyticalmodel
@@ -209,3 +215,32 @@ Others/ApertureEffect/figure/*.eps
 
 # Spectral Ratio Analysis
 Others/SpectralRatio/figure
+
+#--------------------------#
+# Revision Analysis #
+#--------------------------#
+Others/Revision_Analysis/SpectralAnalysis_D118D24/figure
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/data/0*
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/data/AElocation/*/*/*.png
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/figure
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/code/*.png
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/code/05_numericalsimulation/revision_case_gougepatch_fb03-087_cluster_cp6200_cs3600_v7_patchP5/qsubrunner
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/code/05_numericalsimulation/revision_case_gougepatch_fb03-087_cluster_cp6200_cs3600_v7_patchP5/*.sh
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/code/05_numericalsimulation/revision_case_gougepatch_fb03-087_cluster_cp6200_cs3600_v7_patchP5/out
+Others/Revision_Analysis/GPeventAnalysis_P5/waveforms_inversion/code/05_numericalsimulation/revision_case_gougepatch_fb03-087_cluster_cp6200_cs3600_v7_patchP5/4m_*
+Others/Revision_Analysis/GPeventAnalysis_P5/plot_repeatingevents/figure
+ 
+Others/Revision_Analysis/SmoothSelfHeal/*.png
+Others/Revision_Analysis/SmoothSelfHeal/preprocess_modelsetup/ref
+Others/Revision_Analysis/SmoothSelfHeal/preprocess_modelsetup/figure
+Others/Revision_Analysis/SmoothSelfHeal/postprocess_dynrup/figure/aux*
+Others/Revision_Analysis/SmoothSelfHeal/postprocess_dynrup/figure/01*
+Others/Revision_Analysis/SmoothSelfHeal/postprocess_dynrup/figure/02*
+Others/Revision_Analysis/SmoothSelfHeal/postprocess_dynrup/figure/03*
+
+Others/Revision_Analysis/StaticStrainConstraints/data
+
+Others/Revision_Analysis/Scaling_RuptureVel/*.png
+Others/Revision_Analysis/Scaling_RuptureVel/figure
+
+Others/StressDropDependentHealing/figure
