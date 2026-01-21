@@ -3,6 +3,7 @@
 % update: 2025.02.12 merge vector and raster figure
 % update: 2025.04.25 updated ylabels.
 
+% update: 2025.11.24 revision to plot AE waveforms without bandpass filter
 clear all; close all;
 
 set(0,'DefaultTextFontsize',10, ...
@@ -37,7 +38,7 @@ runID = sprintf('FB03_%03d', expr_id);
 T = readtable(sprintf("../../Experiments/DetectEvent/data/p02_eventtype_fb03-%03d.csv", expr_id));
 
 event_type = zeros(length(size(T, 1)), 3); %1. event type %2. rupture vel %3. event start time from strain
-event_id = 35; %29;
+event_id = 29;
 event_datdir="../data/eventdata_master";
 
 load(event_datdir + sprintf("/eventdata_FB03_%03d_event%02d.mat", expr_id, event_id));
@@ -56,7 +57,7 @@ fprintf(fo_param, "lowpass Macroscopic shear: %.1f kHz\n", lowpass_winlen*Fs_str
 
 %% Shift the start time
 % Trim the time before the event nucleation
-Tshift = 21e-3;
+Tshift = 22e-3;
 Tstart = Tstart + Tshift;
 
 tmat_AE_event = tmat_AE_event - Tshift;
@@ -64,8 +65,7 @@ tmat_slip_event = tmat_slip_event - Tshift;
 tmat_strain_event = tmat_strain_event - Tshift;
 tmat_SS = tmat_macro - Tshift;
 % Plot parameter
-% xlimit=[0, 30];
-xlimit=[0, 55];
+xlimit=[0, 30];
 
 % if ~ifPlotStrain
 %     lc_AE = "k";  %sns_colorpalette(1, 1);
@@ -86,7 +86,6 @@ mc_gougepatch = 'w'; sns_colorpalette(1, 9);
 fig = figure(1); clf; hold on; box on;
 fig.Units = 'point';
 fig.Position = [0 800 700 400];
-% fig.Position = [0 800 1400 800];
 
 Tlength = event_winlen;
 
@@ -101,10 +100,10 @@ assert(Tstart-Tshift == T.event_starttime(event_id));
 
 %--Plot AE---%
 %%
-ifBandpass = true;
+ifBandpass = false;
 bandpass_order = 3;
-fmin = 0.1e6; %0.6e5;
-fmax = 1.0e6; % 0.6e6
+fmin = 1e3; %%0.1e6; %0.6e5;
+fmax = 1e6; %%1.0e6; % 0.6e6
 ampnorm_AE = 25; %10; %5e-5;
 
 fprintf(fo_param, "Bandpass AE sensor: %.2f - %.2f MHz\n", fmin/1e6, fmax/1e6);
@@ -316,7 +315,7 @@ if ruptype <= 2 % skip ruptyre == 3
     %     xq = linspace(min(R(:, 2)), max(R(:, 2)), 101);
     xq = linspace(12*1e-3, 21.1*1e-3, 101);
     yq = polyval(pvel, xq);
-    plot(xq*1e3, yq-rupture_propagation_slopeshift, "-", "Color", lc_rupture, "LineWidth", 1);
+    % plot(xq*1e3, yq-rupture_propagation_slopeshift, "-", "Color", lc_rupture, "LineWidth", 1);
 end
 
 % text(15, 1.958, sprintf("%4.1fm/s", abs(pvel(1))), "FontSize",17);
@@ -326,7 +325,7 @@ fprintf(fo_param, "first rupture velocity: %.1f m/s\n", abs(pvel(1)));
 if ruptype <= 2 % skip ruptyre == 3
     xq_2 = linspace(21.4*1e-3, 22.1*1e-3, 101);
     yq_2 = polyval(pvel_2, xq_2);
-    plot(xq_2*1e3, yq_2-rupture_propagation_slopeshift-0.3, "-", "Color", lc_rupture, "LineWidth", 1);
+    % plot(xq_2*1e3, yq_2-rupture_propagation_slopeshift-0.3, "-", "Color", lc_rupture, "LineWidth", 1);
 end
 % text(20.6, 0.1, sprintf("%4.1fm/s", abs(pvel_2(1))), "FontSize",17);
 fprintf(fo_param, "second rupture velocity: %.1f m/s\n", abs(pvel_2(1)));
@@ -394,17 +393,14 @@ cb.Position = pos;
 gougepatch_loc = 750 + (0:6)*500;
 gouge_rec_x = 1.5;
 
-scalefac_between_evt29and35 = 55/30;
-
 % Plot fault rectangle for visuallization
-faultwidth = 0.7*scalefac_between_evt29and35; %0.7;
+faultwidth = 0.7;
 faultlength = 4.1;
 rec_fault = rectangle('Position',[gouge_rec_x-faultwidth/2 0 faultwidth faultlength],...
     'FaceColor', [0.6, 0.6, 0.6, 0.6], 'EdgeColor','k', "LineWidth", 0.5);
 
-p_gouge = scatter(ones(7, 1)*gouge_rec_x, gougepatch_loc/1e3, 30,...
- "Marker", "o", "MarkerEdgeColor","k",...
- "MarkerFaceColor", mc_gougepatch, "LineWidth",0.75);
+p_gouge = scatter(ones(7, 1)*gouge_rec_x, gougepatch_loc/1e3, 25, "Marker", "o", "MarkerEdgeColor","k",...
+    "MarkerFaceColor", mc_gougepatch, "LineWidth",0.75);
 % Child = get(p_gouge, 'Children');
 % set(Child, 'Clipping', 'on');
 
@@ -429,46 +425,52 @@ plot([v_t0, v_t0+vscale_len/tan(th_vs)], [v_x0, v_x0-vscale_len], "k-", "LineWid
 % plot([v_t0, v_t0+vscale_len/tan(th_vr)], [v_x0, -(v_x0+vscale_len)], "k-")
 
 text(5.8, 0.92, "{\it c_p}", "FontSize",10);
-text(6.8, 0.92, "{\it c_s}", "FontSize",10);
+text(6.5, 0.92, "{\it c_s}", "FontSize",10);
 
 
 %% Annotate the gouge-mediated event
-annotation('arrow',[0.822857142857143 0.841428571428571],...
-    [0.775 0.72],'LineWidth',0.75,'HeadWidth',4,...
+% annotation('arrow',[0.6923, 0.6755],[0.6135, 0.549]);
+% annotation('arrow',[0.700581395348837 0.679263565891472],...
+% [0.612094395280236 0.564896755162241],'HeadStyle','cback2');
+
+% annotation('arrow',[0.456395348837209 0.469961240310078],...
+%     [0.83 0.79]); %, 'color', 'b');
+%
+%
+% annotation('arrow',[0.577519379844961 0.593023255813953],...
+%     [0.765961651917404 0.72]); %, 'color', 'r');
+%
+% annotation('arrow',[0.652727272727273 0.661909090909091],...
+%     [0.627686327077748 0.56],'LineWidth',1,'HeadWidth',8,...
+%     'HeadLength',8);
+%
+
+annotation('arrow',[0.451076320939334 0.465037508153946],...
+    [0.842787682333873 0.801729567029404],'LineWidth',0.75,'HeadWidth',4,...
     'HeadLength',4);
 
-annotation('arrow',[0.717142857142857 0.736],...
-    [0.614 0.557],'LineWidth',0.75,'HeadWidth',4,...
+annotation('arrow',[0.521526418786691 0.535487606001303],...
+    [0.760129659643434 0.719071544338966],'LineWidth',0.75,'HeadWidth',4,...
     'HeadLength',4);
 
-annotation('arrow',[0.397142857142857 0.415],...
-    [0.6125 0.562],'LineWidth',0.75,'HeadWidth',4,...
+annotation('arrow',[0.6445 0.655],...
+    [0.599761013218786 0.558702897914318],'LineWidth',0.75,'HeadWidth',4,...
     'HeadLength',4);
 
-annotation('arrow',[0.352857142857143 0.368571428571429],...
-    [0.775 0.72],'LineWidth',0.75,'HeadWidth',4,...
-    'HeadLength',4);
-
-annotation('arrow',[0.322 0.336],...
-    [0.857 0.8], 'LineWidth',0.75,'HeadWidth',4,...
-    'HeadLength',4);
-
-
-% annotate aftershock
-Aevent = Aevents(2, :);
-gougeevent_ID = "D"+string(Aevent.Var7);
-text(39.5, 2.22, gougeevent_ID, "FontWeight", "bold");
+% Aevent = Aevents(2, :);
+% gougeevent_ID = "ID:"+string(Aevent.Var7);
+% text(18.5, 2.105, gougeevent_ID, "FontWeight", "bold");
 
 
 %% Annotate event waveforms for zoomed panel
-% Torigin = 130.73454890; %gougeevetn id 61
-% rec_margin = 0.1;
-% Tevent = (Torigin - Tstart) * 1e3;
-% sensor_xmin = 1.2; % synchronize with the zoomed figure
-% sensor_xmax = 2.2;
-% 
+Torigin = 130.73454890; %gougeevetn id 61
+rec_margin = 0.1;
+Tevent = (Torigin - Tstart) * 1e3;
+sensor_xmin = 1.2; % synchronize with the zoomed figure
+sensor_xmax = 2.2;
+
 % rectangle('Position',[Tevent-rec_margin sensor_xmin 0.12+2*rec_margin sensor_xmax-sensor_xmin],...
-%     'FaceColor',"None", 'EdgeColor','k') %[x y w h]
+    % 'FaceColor',"None", 'EdgeColor','k') %[x y w h]
 %
 % pause
 
@@ -476,11 +478,11 @@ text(39.5, 2.22, gougeevent_ID, "FontWeight", "bold");
 
 % for master figure
 if ifBandpass
-    % titlestr = sprintf("FB03-%03d event %02d: T%4.4f-%4.4f[s] Bandpass filtered: %.0f-%.0fkHz",...
-    %     expr_id, event_id, Tstart, Tstart+xlimit(2)*1e-3, fmin/1e3, fmax/1e3);
-    titlestr = sprintf("Stick-slip event %02d: T%4.4f-%4.4f [s]", event_id, Tstart, Tstart+xlimit(2)*1e-3);
+    titlestr = sprintf("Stick-slip event %02d: T%4.4f-%4.4f[s] AE bandpass filtered: %.0f-%.0f kHz",...
+        event_id, Tstart, Tstart+xlimit(2)*1e-3, fmin/1e3, fmax/1e3);
+    % titlestr = sprintf("Stick-slip event %02d: T%4.4f-%4.4f [s]", event_id, Tstart, Tstart+xlimit(2)*1e-3);
 else
-    titlestr = " "; %sprintf("FB03-%03d event %02d: T%4.4f-%4.4f[s]",...
+    titlestr = sprintf("Stick-slip event %02d: T%4.4f-%4.4f [s] No filter on AE waveforms", event_id, Tstart, Tstart+xlimit(2)*1e-3);
     %expr_id, event_id, Tstart, Tstart+xlimit(2)*1e-3);
 end
 
@@ -505,10 +507,7 @@ plot(tmat_SS*1e3, SS_HFS_filtered, "k-", "LineWidth", 1);
 xlabel("Time [ms]");
 ylabel({"Macroscopic"; "shear stress [MPa]"});
 xlim(xlimit);
-% ylim([0.638, 0.662]);
-% yticks([0.64, 0.65, 0.66]);
-
-ylim([0.635, 0.665]);
+ylim([0.638, 0.662]);
 yticks([0.64, 0.65, 0.66]);
 
 %% plot vline for the onset of main shock
@@ -536,17 +535,17 @@ xline(hax, tmat_SS(onset_ind)*1e3, "k--", "LineWidth",1.0);
 %% Plot annotation of stress drop
 SS_init_ind = find((xlimit(1) <= tmat_SS), 1);
 taup_macro = mean(SSmacro(SS_init_ind:SS_init_ind+100));
-plot([50.6, 51.5], [taup_macro, taup_macro], "k-", "LineWidth", 0.75);
-annotation('arrow',[0.85 0.85], [0.209 0.127],'LineWidth', 0.75,'HeadWidth',4,...
+plot([27.1, 27.9], [taup_macro, taup_macro], "k-", "LineWidth", 0.75);
+annotation('arrow',[0.84 0.84], [0.209 0.139],'LineWidth', 0.75,'HeadWidth',4,...
     'HeadLength',4);
-text(47.2, 0.65, "\Delta\tau^{macro}", "Interpreter", "tex")
+text(27.65, 0.652, "\Delta\tau^{macro}", "Interpreter", "tex")
 %% Add figure annotation
 % annotation('textbox', [0.065, 0.95, 0, 0], 'string', '(a)', "FontWeight","bold", "FontSize", 17);
 % annotation('textbox', [0.065, 0.26, 0, 0], 'string', '(b)', "FontWeight","bold", "FontSize", 17);
 
 %% Add east and west annotation
-annotation('textbox', [0.158, 0.928, 0, 0], 'string', 'E', "FontWeight","normal", "FontSize", 9.5);
-annotation('textbox', [0.158, 0.295, 0, 0], 'string', 'W', "FontWeight","normal", "FontSize", 9.5);
+annotation('textbox', [0.178, 0.928, 0, 0], 'string', 'E', "FontWeight","normal", "FontSize", 9.5);
+annotation('textbox', [0.178, 0.295, 0, 0], 'string', 'W', "FontWeight","normal", "FontSize", 9.5);
 
 % end
 %% Save the figure separating the vector and raster images
@@ -558,7 +557,7 @@ annotation('textbox', [0.158, 0.295, 0, 0], 'string', 'W', "FontWeight","normal"
 % Copyright (c) 2023, Theodoros Michelis
 % All rights reserved.
 
-figname_all = sprintf(figdir+'/plot_eventexample_master_fb03-%03d_event%02d_%d_wshearloading_filter%d_forFig2_master', expr_id, event_id, ifPlotStrain, ifBandpass);
+figname_all = sprintf(figdir+'/plot_revision_eventexample_master_fb03-%03d_event%02d_%d_wshearloading_filter%d_forFig2_master_nofilter', expr_id, event_id, ifPlotStrain, ifBandpass);
 
 figureHandle = fig;
 stack = 'bottom';

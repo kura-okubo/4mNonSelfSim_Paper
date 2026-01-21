@@ -457,8 +457,8 @@ annotation('arrow',[0.6445 0.655],...
     'HeadLength',4);
 
 Aevent = Aevents(2, :);
-gougeevent_ID = "ID:"+string(Aevent.Var7);
-text(18.5, 2.105, gougeevent_ID, "FontWeight", "bold");
+gougeevent_ID = "D"+string(Aevent.Var7);
+text(18.7, 2.105, gougeevent_ID, "FontWeight", "bold");
 
 
 %% Annotate event waveforms for zoomed panel
