@@ -51,4 +51,4 @@ The original dataset of stick-slip experiments is uploaded in Zenodo ([https://d
 In matlab, load the data for the stick-slip, for example, event id 29 by `A=load("eventdata_FB03_087_event29.mat")`.
 
 ## Reference
-Okubo, K., Yamashita, F., & Fukuyama, E. (2025) Dynamics of non-self-similar earthquakes illuminated by a controlled fault asperity, submitted.
+Okubo, K., Yamashita, F., & Fukuyama, E. (2026) Dynamics of non-self-similar earthquakes illuminated by a controlled fault asperity, in revision.

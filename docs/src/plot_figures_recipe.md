@@ -36,7 +36,7 @@
 - **Figure 4a.** Shear traction history during rupture.  
   Run [`04_plot_sheartractionhistory.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/04_plot_sheartractionhistory.ipynb)
 
-- **Figures 4b-c.** Initial stress distribution in the rupture simulation.  
+- **Figures 4b-c.** Initial stress distribution of the rupture simulation.  
   Run [`02_plot_initialcondition.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/02_plot_initialcondition.ipynb)
 
 - **Figures 4d–f.** Snapshots of rupture front propagation.  
@@ -48,86 +48,88 @@
 ---
 
 ## Supplementary Figure Reproduction Notes
+- **Figure S1.** Schematic of the classification of non-self-similar earthquakes.
+  *No script required.*
 
-- **Figure S1.** Schematic of the experimental frame and AE sensor array.  
+- **Figure S2.** Schematic of the experimental apparatus and AE sensor array.  
   Run [`plot_4mframeandSensors.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/SensorArray/code/plot_4mframeandSensors.ipynb)
 
-- **Figure S2.** Photographs of the experimental apparatus and gouge patch (GP).  
+- **Figure S3.** Photographs of the experimental apparatus and gouge patch (GP).  
   *No script required.*
 
-- **Figure S3.** Histogram of GP event counts and spatial distribution of normal stress.  
+- **Figure S4.** Histogram of GP event counts and spatial distribution of normal stress.  
   Run [`plot_GPeventActivity_and_NormalStress.m`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/GPeventsActivity/code/plot_GPeventActivity_and_NormalStress.m)
 
-- **Figure S4.** AE waveforms of GP events across all AE sensors.  
+- **Figure S5.** AE waveforms of GP events across all AE sensors.  
   Run [`01_Introduction_plot_gougeevents.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/ComputeScaling/code/01_Introduction_plot_gougeevents.ipynb)
 
-- **Figure S5.** Shear stress and AE waveform of a GP aftershock event.  
+- **Figure S6.** Shear stress and AE waveform of a GP aftershock event.  
   Run [`plot_example_master_fb03_087_event35_FigSupp.m`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/PlotEvent/code/plot_example_master_fb03_087_event35_FigSupp.m)
 
-- **Figures S6a–b.** Schematic diagrams for estimating attenuation factors.  
+- **Figures S7a–b.** Schematic diagrams for estimating attenuation factors.  
   Run [`08_compute_attenuation_factor.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/Attenuation/code/08_compute_attenuation_factor.ipynb)
 
-- **Figure S6c.** Quantitative estimation of attenuation (1/Qp).  
+- **Figure S7c.** Quantitative estimation of attenuation (1/Qp).  
   Run [`09_compute_Qinv.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/Attenuation/code/09_compute_Qinv.ipynb)
 
-- **Figure S7.** Spectral ratio analysis of GP events.  
+- **Figure S8.** Spectral ratio analysis of GP events.  
   Run [`02_stacked_spectralratioanalysis_nonselfsimilar.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/SpectralRatio/code/02_stacked_spectralratioanalysis_nonselfsimilar.ipynb)
 
-- **Figure S8.** Waveforms of the GP events on P5.  
+- **Figure S9.** Waveforms of the GP events on P5.  
   Run [`01_Introduction_plot_gougeevents_revision_P5.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/Revision_Analysis/GPeventAnalysis_P5/plot_repeatingevents/code/01_Introduction_plot_gougeevents_revision_P5.ipynb)
 
-- **Figure S9.** Cumulative local slip distributions across the fault.  
+- **Figure S10.** Cumulative local slip distributions across the fault.  
   Run [`05_localslip_slipvel_masterplot.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/GougeEventStats/M0_LocalSlip_and_SlipVel/code/05_localslip_slipvel_masterplot.ipynb)
 
-- **Figure S10.** Comparison between local and macroscopic measurements and seismic moment 
+- **Figure S11.** Comparison between local and macroscopic measurements and seismic moment 
   See notebooks in [`GougeEventStats`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/GougeEventStats) and [`NormalStressonGP`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Revision_Analysis/NormalStressonGP) 
 
-- **Figure S11.** STF of dynamic rupture simulation without self-healing.  
+- **Figure S12.** STF of dynamic rupture simulation without self-healing.  
   Run [`05_plot_masterSTF.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/RuptureSimulation/main_casestudy/postprocess_dynrup/code/05_plot_masterSTF.ipynb)
 
-- **Figure S12.** Comparison of self-healing region for GP events.
+- **Figure S13.** Comparison of self-healing region for GP events.
   Run [`aux_03_Revision_plot_healing_comparison.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Others/StressDropDependentHealing/code/aux_03_Revision_plot_healing_comparison.ipynb)
 
-- **Figure S13.** Schematic illustration of scaling.  
+- **Figure S14.** Schematic illustration of scaling.  
   *No script required.*
 
-- **Figure S14.**  summary of physical state for gouge patch.  
+- **Figure S15.**  summary of physical state for gouge patch.  
   See [`GougePatch`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Experiments/GougePatch)
 
-- **Figure S15.** Schematic of AE sensor calibration setup.  
+- **Figure S16.** Schematic of AE sensor calibration setup.  
   *No script required.*
 
-- **Figure S16.** Flowchart of AE sensor calibration procedure.  
+- **Figure S17.** Flowchart of AE sensor calibration procedure.  
   *No script required.*
 
-- **Figure S17.** AIC-based model selection in AE sensor calibration.  
+- **Figure S18.** AIC-based model selection in AE sensor calibration.  
   Run [`plot_modelAIC.m`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/AEsensor_Calibration/Evaluation_PAZmodel/code/plot_modelAIC.m)
 
-- **Figure S18a.** Bode plot of transfer function.  
+- **Figure S19a.** Bode plot of transfer function.  
   See [`AEsensor_Calibration_ARX`](https://github.com/kura-okubo/AEsensor_Calibration_ARX)
 
-- **Figure S18b.** Comparison of responses before and after correction.  
+- **Figure S19b.** Comparison of responses before and after correction.  
   Run [`validate_metalblock_PAZmodel.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/AEsensor_Calibration/Evaluation_PAZmodel/code/validate_metalblock_PAZmodel.ipynb)
 
-- **Figure S19.** Locations of ball-drop calibration tests.  
+- **Figure S20.** Locations of ball-drop calibration tests.  
   Run [`02_plot_and_makelocationtable_v01.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/SensorCoupling_BallDrop/code/02_plot_and_makelocationtable_v01.ipynb)
 
-- **Figure S20.** Schematic of waveform modeling and calibration strategy.  
+- **Figure S21.** Schematic of waveform modeling and calibration strategy.  
   See [`4mNonSelfSim_OpenSWPC – cross-verification`](https://github.com/kura-okubo/4mNonSelfSim_OpenSWPC/tree/develop/cross-verification)
 
-- **Figure S21.** Results of calibration for waveform propagation modeling.  
+- **Figure S22.** Results of calibration for waveform propagation modeling.  
   See [`4mNonSelfSim_OpenSWPC – cross-verification`](https://github.com/kura-okubo/4mNonSelfSim_OpenSWPC/tree/develop/cross-verification)
 
-- **Figure S22.** Waveform fitting for sensor coupling calibration.  
+- **Figure S23.** Waveform fitting for sensor coupling calibration.  
   Run [`08_plot_surfaceeffect_result_Case2.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/SensorCoupling_BallDrop/code/08_plot_surfaceeffect_result_Case2.ipynb)
 
-- **Figure S23.** Schematic illustration of the aperture effect.  
+- **Figure S24.** Schematic illustration of the aperture effect.  
   *No script required.*
 
-- **Figure S24.** Sensor coupling calibration results.  
+- **Figure S25.** Sensor coupling calibration results.  
   Run [`08_plot_surfaceeffect_result_Case2.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/Calibration/SensorCoupling_BallDrop/code/08_plot_surfaceeffect_result_Case2.ipynb)
 
-- **Figure S25.** STF fitting results for all GP events.  
+- **Figure S26.** STF fitting results for all GP events.  
   Run [`06_plotfittingSTF.ipynb`](https://github.com/kura-okubo/4mNonSelfSim_Paper/blob/dev/ComputeScaling/code/06_plotfittingSTF.ipynb)
 
 ---
