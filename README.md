@@ -50,4 +50,4 @@ Documentation source for this repository.
 
 # Reference
 
-Okubo, K., Yamashita, F., & Fukuyama, E. (2025). Dynamics of non-self-similar earthquakes illuminated by a controlled fault asperity, in revision.
+Okubo, K., Yamashita, F. & Fukuyama, E. Dynamics of non-self-similar earthquakes illuminated by a controlled fault asperity. Nat Commun 17, 3860 (2026). https://doi.org/10.1038/s41467-026-72217-x
